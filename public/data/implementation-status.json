@@ -966,7 +966,7 @@
       ]
     },
     "IceBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "ice"
