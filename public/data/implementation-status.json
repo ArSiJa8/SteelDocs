@@ -2784,7 +2784,7 @@
       ]
     },
     "MudBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "mud"
