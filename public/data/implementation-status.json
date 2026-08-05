@@ -4498,7 +4498,6 @@
     "PotionItem": {
       "implemented": true,
       "todos": [
-        "Implement PotionItem.useOn water-to-mud conversion, bottle replacement,",
         "Add PotionItem's water default instance when Steel has item-specific",
         "Complete the shared CONSUMABLE use/finish lifecycle so potions can be"
       ],
