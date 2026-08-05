@@ -1701,7 +1701,7 @@
       ]
     },
     "WoolCarpetBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "white_carpet",
