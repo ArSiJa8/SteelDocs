@@ -2664,8 +2664,7 @@
     "PointedDripstoneBlock": {
       "implemented": true,
       "todos": [
-        "Implement falling stalactites after falling block entities exist.",
-        "Implement fluid transfer after cauldron drip-fill foundations exist."
+        "Implement falling stalactites after falling block entities exist."
       ],
       "entries": [
         "pointed_dripstone"
