@@ -1172,8 +1172,11 @@
       ]
     },
     "PumpkinBlock": {
-      "implemented": false,
-      "todos": [],
+      "implemented": true,
+      "todos": [
+        "Once CarvedPumpkinBlock is implemented, replace HORIZONTAL_FACING with FACING of CarvedPumpkinBlock.",
+        "Award statistic ITEM_USED with SHEARS."
+      ],
       "entries": [
         "pumpkin"
       ]
