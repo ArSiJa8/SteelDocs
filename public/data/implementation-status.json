@@ -758,9 +758,7 @@
     },
     "FarmlandBlock": {
       "implemented": true,
-      "todos": [
-        "Check for rain when weather is implemented"
-      ],
+      "todos": [],
       "entries": [
         "farmland"
       ]
@@ -1946,18 +1944,14 @@
     },
     "KelpBlock": {
       "implemented": true,
-      "todos": [
-        "Implement random growth, bonemeal growth, and clone stack behavior."
-      ],
+      "todos": [],
       "entries": [
         "kelp"
       ]
     },
     "KelpPlantBlock": {
       "implemented": true,
-      "todos": [
-        "Implement bonemeal forwarding and clone stack behavior."
-      ],
+      "todos": [],
       "entries": [
         "kelp_plant"
       ]
