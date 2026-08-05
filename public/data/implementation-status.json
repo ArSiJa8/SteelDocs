@@ -956,9 +956,7 @@
     },
     "SnowLayerBlock": {
       "implemented": true,
-      "todos": [
-        "Implement melting, layering on placement, and entity step damage."
-      ],
+      "todos": [],
       "entries": [
         "snow"
       ]
@@ -2747,9 +2745,7 @@
     },
     "BigDripleafStemBlock": {
       "implemented": true,
-      "todos": [
-        "Implement scheduled break on shape update and tick."
-      ],
+      "todos": [],
       "entries": [
         "big_dripleaf_stem"
       ]
