@@ -2754,9 +2754,7 @@
     },
     "SmallDripleafBlock": {
       "implemented": true,
-      "todos": [
-        "Implement full vanilla behavior beyond can_survive."
-      ],
+      "todos": [],
       "entries": [
         "small_dripleaf"
       ]
@@ -5059,7 +5057,7 @@
       ]
     },
     "Cow": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "cow"
