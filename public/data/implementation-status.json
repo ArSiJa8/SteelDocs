@@ -1789,7 +1789,7 @@
       ]
     },
     "EndRodBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "end_rod"
