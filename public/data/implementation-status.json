@@ -424,7 +424,10 @@
     "BedBlock": {
       "implemented": true,
       "todos": [
-        "Add two-block placement, bed block entities, sleep interaction, and"
+        "Mirror vanilla `BedBlock.useWithoutItem` invalid-dimension explosion",
+        "Mirror vanilla `BedBlock.kickVillagerOutOfBed` once villager sleeping",
+        "When WOrld::explode foundation exists display the bedrule error remove both halves and create the bad respawn point explosion",
+        "Mirror vanilla `kickVillagerOutOfBed`: find a sleeping"
       ],
       "entries": [
         "white_bed",
@@ -1745,7 +1748,7 @@
       ]
     },
     "BannerBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "white_banner",
@@ -1767,7 +1770,7 @@
       ]
     },
     "WallBannerBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "white_wall_banner",
@@ -2353,7 +2356,10 @@
     },
     "RespawnAnchorBlock": {
       "implemented": true,
-      "todos": [],
+      "todos": [
+        "Implement vanilla invalid-dimension explosion once Steel has a strict",
+        "Once `World::explode` exist remove the anchor and use the"
+      ],
       "entries": [
         "respawn_anchor"
       ]
@@ -4439,7 +4445,7 @@
       ]
     },
     "BedItem": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "white_bed",
