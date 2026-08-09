@@ -2831,9 +2831,7 @@
     },
     "MossyCarpetBlock": {
       "implemented": true,
-      "todos": [
-        "Implement spreading, bonemeal, and the rest of vanilla behavior."
-      ],
+      "todos": [],
       "entries": [
         "pale_moss_carpet"
       ]
