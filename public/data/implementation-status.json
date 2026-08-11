@@ -1187,7 +1187,7 @@
       ]
     },
     "AttachedStemBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "attached_pumpkin_stem",
@@ -1195,7 +1195,7 @@
       ]
     },
     "StemBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "pumpkin_stem",
