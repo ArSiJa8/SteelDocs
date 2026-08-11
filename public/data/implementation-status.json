@@ -4697,7 +4697,7 @@
       ]
     },
     "NameTagItem": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "name_tag"
