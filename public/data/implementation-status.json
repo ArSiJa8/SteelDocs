@@ -331,7 +331,7 @@
       ]
     },
     "DropExperienceBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "gold_ore",
@@ -1213,15 +1213,14 @@
       "implemented": true,
       "todos": [
         ".",
-        "Implement spread, bonemeal, and rotation/mirror overrides.",
-        "Vanilla picks a face from nearestLookingDirections; placeholder"
+        "Implement spread, bonemeal, and rotation/mirror overrides."
       ],
       "entries": [
         "glow_lichen"
       ]
     },
     "MultifaceBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "resin_clump"
