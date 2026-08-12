@@ -4415,7 +4415,7 @@
       ]
     },
     "DyeItem": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "white_dye",
@@ -5566,7 +5566,7 @@
       ]
     },
     "Sheep": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "sheep"
