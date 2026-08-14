@@ -306,7 +306,7 @@
       ]
     },
     "SandBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "sand",
@@ -315,16 +315,14 @@
     },
     "BrushableBlock": {
       "implemented": true,
-      "todos": [
-        "Fall without dropping once Steel implements vanilla falling-block entities."
-      ],
+      "todos": [],
       "entries": [
         "suspicious_sand",
         "suspicious_gravel"
       ]
     },
     "ColoredFallingBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "gravel"
@@ -1924,7 +1922,7 @@
       ]
     },
     "ConcretePowderBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "white_concrete_powder",
@@ -5195,7 +5193,7 @@
       ]
     },
     "FallingBlockEntity": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "falling_block"
