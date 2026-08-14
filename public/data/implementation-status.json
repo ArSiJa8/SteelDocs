@@ -822,9 +822,7 @@
     },
     "LadderBlock": {
       "implemented": true,
-      "todos": [
-        "Implement the mirror and rotate functions"
-      ],
+      "todos": [],
       "entries": [
         "ladder"
       ]
@@ -1213,7 +1211,7 @@
       "implemented": true,
       "todos": [
         ".",
-        "Implement spread, bonemeal, and rotation/mirror overrides."
+        "Implement spread, and bonemeal."
       ],
       "entries": [
         "glow_lichen"
@@ -2430,9 +2428,7 @@
     },
     "AmethystClusterBlock": {
       "implemented": true,
-      "todos": [
-        "Mirror and Rotate functions"
-      ],
+      "todos": [],
       "entries": [
         "amethyst_cluster",
         "large_amethyst_bud",
@@ -2488,7 +2484,7 @@
       "implemented": true,
       "todos": [
         ".",
-        "Implement sculk spread, charge handling, and rotation/mirror overrides."
+        "Implement sculk spread, and charge handling."
       ],
       "entries": [
         "sculk_vein"
