@@ -589,7 +589,7 @@
       ]
     },
     "ChiseledBookShelfBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "chiseled_bookshelf"
