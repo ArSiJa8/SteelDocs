@@ -2176,7 +2176,7 @@
       ]
     },
     "LanternBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "lantern",
@@ -2188,7 +2188,7 @@
       ]
     },
     "WeatheringLanternBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "copper_lantern",
