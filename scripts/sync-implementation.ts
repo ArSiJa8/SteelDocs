@@ -140,12 +140,15 @@ const [classesRaw, implementedBlockClasses, implementedItemClasses, implementedE
   scanImplementedClasses(entityDir, "entity_behavior"),
 ]);
 
+const BLACKLISTED_CLASSES = new Set(["AirBlock", "Block", "Item"]);
+
 function groupByClass(
   entries: ClassEntry[],
   implementedClasses: Map<string, ClassInfo>,
 ): Record<string, { implemented: boolean; todos: string[]; entries: string[] }> {
   const groups: Record<string, { implemented: boolean; todos: string[]; entries: string[] }> = {};
   for (const entry of entries) {
+    if (BLACKLISTED_CLASSES.has(entry.class)) continue;
     if (!groups[entry.class]) {
       const info = implementedClasses.get(entry.class);
       groups[entry.class] = {
@@ -170,17 +173,21 @@ await mkdir(outDir, { recursive: true });
 const outPath = join(outDir, "implementation-status.json");
 await writeFile(outPath, JSON.stringify(output, null, 2));
 
-const totalBlocks = classesRaw.blocks.length;
-const implBlocks = classesRaw.blocks.filter((b) => implementedBlockClasses.has(b.class)).length;
-const totalItems = classesRaw.items.length;
-const implItems = classesRaw.items.filter((i) => implementedItemClasses.has(i.class)).length;
-const totalEntities = classesRaw.entities.length;
-const implEntities = classesRaw.entities.filter((e) => implementedEntityClasses.has(e.class)).length;
-const partialBlocks = Object.values(blocks).filter((g) => g.implemented && g.todos.length > 0).length;
-const partialItems = Object.values(items).filter((g) => g.implemented && g.todos.length > 0).length;
-const partialEntities = Object.values(entities).filter((g) => g.implemented && g.todos.length > 0).length;
+// Counted from the grouped output so blacklisted classes are left out here too.
+function summarize(groups: Record<string, { implemented: boolean; todos: string[]; entries: string[] }>) {
+  const all = Object.values(groups);
+  return {
+    total: all.reduce((sum, g) => sum + g.entries.length, 0),
+    implemented: all.reduce((sum, g) => sum + (g.implemented ? g.entries.length : 0), 0),
+    partial: all.filter((g) => g.implemented && g.todos.length > 0).length,
+  };
+}
+
+const blockStats = summarize(blocks);
+const itemStats = summarize(items);
+const entityStats = summarize(entities);
 
 console.log(`Wrote ${outPath}`);
-console.log(`Blocks: ${implBlocks}/${totalBlocks} implemented (${partialBlocks} partial)`);
-console.log(`Items:  ${implItems}/${totalItems} implemented (${partialItems} partial)`);
-console.log(`Entities: ${implEntities}/${totalEntities} implemented (${partialEntities} partial)`);
+console.log(`Blocks: ${blockStats.implemented}/${blockStats.total} implemented (${blockStats.partial} partial)`);
+console.log(`Items:  ${itemStats.implemented}/${itemStats.total} implemented (${itemStats.partial} partial)`);
+console.log(`Entities: ${entityStats.implemented}/${entityStats.total} implemented (${entityStats.partial} partial)`);
