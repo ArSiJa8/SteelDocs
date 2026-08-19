@@ -1030,9 +1030,7 @@
     },
     "NetherPortalBlock": {
       "implemented": true,
-      "todos": [
-        "add this functionality but has low priority"
-      ],
+      "todos": [],
       "entries": [
         "nether_portal"
       ]
@@ -1247,9 +1245,7 @@
     },
     "LilyPadBlock": {
       "implemented": true,
-      "todos": [
-        "Implement full vanilla behavior beyond can_survive."
-      ],
+      "todos": [],
       "entries": [
         "lily_pad"
       ]
@@ -3871,7 +3867,7 @@
       ]
     },
     "PlaceOnWaterBlockItem": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "lily_pad",
