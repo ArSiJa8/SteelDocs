@@ -247,7 +247,7 @@ export default function ImplementationTracker() {
           return (
             <div
               key={className}
-              className="rounded-xl border border-teal-200/30 dark:border-white/10 bg-white/60 dark:bg-white/[0.03] overflow-hidden transition-all"
+              className="rounded-xl border border-teal-200/30 dark:border-white/10 bg-white/60 dark:bg-white/[0.03] overflow-hidden transition-all [content-visibility:auto] [contain-intrinsic-size:auto_500px]"
             >
               <button
                 onClick={() => toggleExpand(className)}
