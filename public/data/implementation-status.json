@@ -2816,7 +2816,7 @@
       ]
     },
     "HeavyCoreBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "heavy_core"
