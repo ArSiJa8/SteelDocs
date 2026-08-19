@@ -20,6 +20,8 @@ interface ImplementationData {
   entities: Record<string, ClassGroup>;
 }
 
+const EXCLUDED_CLASSES = new Set(["AirBlock", "Block", "Item"]);
+
 type Tab = "blocks" | "items" | "entities";
 type StatusFilter = "all" | "complete" | "partial" | "unimplemented";
 type ProgressMetric = "surface" | "classes";
@@ -38,7 +40,14 @@ export default function ImplementationTracker() {
       .then(setData);
   }, []);
 
-  const currentData = data?.[tab];
+  const currentData: Record<string, ClassGroup> | undefined = useMemo(() => {
+    const groups = data?.[tab];
+    if (!groups) return undefined;
+    return Object.fromEntries(
+      Object.entries(groups).filter(([className]) => !EXCLUDED_CLASSES.has(className)),
+    );
+  }, [data, tab]);
+
   const entryLabel = tab === "entities" ? "entities" : tab;
 
   const stats = useMemo(() => {
