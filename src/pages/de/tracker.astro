@@ -4,6 +4,7 @@ import Navbar from "@/components/sections/Navbar.astro";
 import ImplementationTracker from "@/components/tracker/ImplementationTracker";
 ---
 
+
 <Layout
         title="Implementation Tracker - SteelMC"
         description="Track which Minecraft blocks, items, and entities have behavior implementations in SteelMC."
@@ -16,12 +17,20 @@ import ImplementationTracker from "@/components/tracker/ImplementationTracker";
             <h1
                     class="text-3xl md:text-5xl font-minecraft font-bold text-teal-950 dark:text-white"
             >
-                Implementations <span class="text-emerald-600 dark:text-emerald-400"
-            >Tracker</span
+                Implementations <span
+                    class="text-emerald-600 dark:text-emerald-400">Tracker</span
             >
             </h1>
-            <p class="max-w-190 text-lg text-teal-700 dark:text-gray-300 mt-3 md:text-xl">
-                Verfolge, welche Minecraft-Blöcke, Gegenstände und Entitäten schon in Steel implementiert sind.
+            <!-- Description -->
+            <p
+                    class="max-w-190 text-lg text-teal-700 dark:text-gray-300 mt-3 md:text-xl"
+            >
+                Verfolge, welche Minecraft-Blöcke, Gegenstände und Entitäten
+                schon in Steel implementiert sind. <span
+                    class="font-bold text-teal-900 dark:text-teal-100"
+            >Achtung: Dies trackt nur den Nightly Build, nicht den
+                   stabilen Release!</span
+            >
             </p>
         </div>
         <ImplementationTracker client:only="react" />
