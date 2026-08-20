@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
-import { Search, ChevronDown, Blocks, Sword, Filter, PawPrint } from "lucide-react";
+import { Search, ChevronDown, Blocks, Sword, Filter, PawPrint, Download, Check } from "lucide-react";
 
 interface ClassGroup {
   implemented: boolean;
@@ -31,6 +31,7 @@ export default function ImplementationTracker() {
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
   const [progressMetric, setProgressMetric] = useState<ProgressMetric>("surface");
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
+  const [downloading, setDownloading] = useState(false);
 
   useEffect(() => {
     fetch(import.meta.env.BASE_URL + "data/implementation-status.json")
@@ -83,6 +84,15 @@ export default function ImplementationTracker() {
       else next.add(className);
       return next;
     });
+  };
+
+  const handleDownload = () => {
+    if (!data) return;
+    setDownloading(true);
+    const url = URL.createObjectURL(new Blob([JSON.stringify(data)], { type: "application/json" }));
+    Object.assign(document.createElement("a"), { href: url, download: "implementation-status-release.json" }).click();
+    URL.revokeObjectURL(url);
+    setTimeout(() => setDownloading(false), 1500);
   };
 
   if (!data) {
@@ -229,6 +239,20 @@ export default function ImplementationTracker() {
             Todo
           </TabButton>
         </div>
+
+        {/* Save state action */}
+        <button
+          onClick={handleDownload}
+          title="Download tracker state for release"
+          className={`flex items-center gap-2 px-3 py-2 rounded-xl border transition-all text-sm font-medium cursor-pointer ${
+            downloading
+              ? "bg-emerald-500/20 border-emerald-500/50 text-emerald-700 dark:text-emerald-400"
+              : "bg-teal-100 dark:bg-white/5 border-teal-200/40 dark:border-white/10 text-teal-700 dark:text-white/70 hover:bg-teal-200 dark:hover:bg-white/10 hover:text-teal-950 dark:hover:text-white"
+          }`}
+        >
+          {downloading ? <Check className="size-4" /> : <Download className="size-4" />}
+          <span className="hidden lg:inline">{downloading ? "Saved!" : "Save State"}</span>
+        </button>
       </div>
 
       {/* Results count */}
