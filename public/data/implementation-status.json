@@ -2,8 +2,8 @@
   "meta": {
     "source": "nightly",
     "steel_version": "0.15.2+mc26.2",
-    "steel_commit": "a8492a7cb9cb814ae85c46bf200e011b1960b163",
-    "steel_committed_at": "2026-08-22T00:37:39+02:00"
+    "steel_commit": "aa31161017445aaf1666258d78c2691d58d916b0",
+    "steel_committed_at": "2026-08-22T00:49:22+02:00"
   },
   "blocks": {
     "GrassBlock": {
@@ -1230,7 +1230,7 @@
       ]
     },
     "DragonEggBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "dragon_egg"
