@@ -2,8 +2,8 @@
   "meta": {
     "source": "nightly",
     "steel_version": "0.15.2+mc26.2",
-    "steel_commit": "c9bc4b722c913f5391ca6ecd992aab4488a8092a",
-    "steel_committed_at": "2026-08-21T23:26:09+02:00"
+    "steel_commit": "a8492a7cb9cb814ae85c46bf200e011b1960b163",
+    "steel_committed_at": "2026-08-22T00:37:39+02:00"
   },
   "blocks": {
     "GrassBlock": {
@@ -1605,18 +1605,14 @@
     },
     "ChorusPlantBlock": {
       "implemented": true,
-      "todos": [
-        "Implement ticking and full shape-update side effects."
-      ],
+      "todos": [],
       "entries": [
         "chorus_plant"
       ]
     },
     "ChorusFlowerBlock": {
       "implemented": true,
-      "todos": [
-        "Implement ticking and growth outside worldgen."
-      ],
+      "todos": [],
       "entries": [
         "chorus_flower"
       ]
