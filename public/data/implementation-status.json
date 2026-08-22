@@ -2,8 +2,8 @@
   "meta": {
     "source": "nightly",
     "steel_version": "0.15.2+mc26.2",
-    "steel_commit": "d7aa8ac6aa7d97274042e4cd6236be93d0e8f5b0",
-    "steel_committed_at": "2026-08-22T03:13:01+02:00"
+    "steel_commit": "a8bbe844006f2eb7beeb24e2db29a8c6ed06834b",
+    "steel_committed_at": "2026-08-22T13:06:17+02:00"
   },
   "blocks": {
     "GrassBlock": {
@@ -3949,8 +3949,10 @@
       ]
     },
     "SpyglassItem": {
-      "implemented": false,
-      "todos": [],
+      "implemented": true,
+      "todos": [
+        "Award `Stats.ITEM_USED` once Steel has a statistics foundation."
+      ],
       "entries": [
         "spyglass"
       ]
