@@ -2,8 +2,8 @@
   "meta": {
     "source": "nightly",
     "steel_version": "0.15.2+mc26.2",
-    "steel_commit": "aa31161017445aaf1666258d78c2691d58d916b0",
-    "steel_committed_at": "2026-08-22T00:49:22+02:00"
+    "steel_commit": "2732047d8b272dc1ec1ba0213b68d7189d12ef31",
+    "steel_committed_at": "2026-08-22T02:29:59+02:00"
   },
   "blocks": {
     "GrassBlock": {
@@ -1015,10 +1015,7 @@
     },
     "GlowLichenBlock": {
       "implemented": true,
-      "todos": [
-        ".",
-        "Implement spread, and bonemeal."
-      ],
+      "todos": [],
       "entries": [
         "glow_lichen"
       ]
