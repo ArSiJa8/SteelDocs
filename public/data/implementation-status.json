@@ -2,8 +2,8 @@
   "meta": {
     "source": "nightly",
     "steel_version": "0.15.2+mc26.2",
-    "steel_commit": "69f0668a2a958ee0e2114da0255ffb1124e5c131",
-    "steel_committed_at": "2026-08-22T15:31:33+02:00"
+    "steel_commit": "eff62883ff4b131e5b78306afd6ab4b2a74b4a79",
+    "steel_committed_at": "2026-08-22T17:18:42+02:00"
   },
   "blocks": {
     "GrassBlock": {
@@ -801,8 +801,10 @@
       ]
     },
     "JukeboxBlock": {
-      "implemented": false,
-      "todos": [],
+      "implemented": true,
+      "todos": [
+        "Award Stats.PLAY_RECORD once Steel has a statistics foundation."
+      ],
       "entries": [
         "jukebox"
       ]
