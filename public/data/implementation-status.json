@@ -2,8 +2,8 @@
   "meta": {
     "source": "nightly",
     "steel_version": "0.15.2+mc26.2",
-    "steel_commit": "2732047d8b272dc1ec1ba0213b68d7189d12ef31",
-    "steel_committed_at": "2026-08-22T02:29:59+02:00"
+    "steel_commit": "d7aa8ac6aa7d97274042e4cd6236be93d0e8f5b0",
+    "steel_committed_at": "2026-08-22T03:13:01+02:00"
   },
   "blocks": {
     "GrassBlock": {
@@ -929,7 +929,7 @@
       ]
     },
     "HugeMushroomBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "brown_mushroom_block",
