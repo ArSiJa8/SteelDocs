@@ -2,8 +2,8 @@
   "meta": {
     "source": "nightly",
     "steel_version": "0.15.2+mc26.2",
-    "steel_commit": "d3967d877fd395c417850f6de21fc4ede8a4677f",
-    "steel_committed_at": "2026-08-23T16:27:53+02:00"
+    "steel_commit": "f09e625296fc66bf68c7c5c19af53727ec9e8cb2",
+    "steel_committed_at": "2026-08-23T16:36:49+02:00"
   },
   "blocks": {
     "GrassBlock": {
@@ -836,7 +836,7 @@
       ]
     },
     "SoulSandBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "soul_sand"
