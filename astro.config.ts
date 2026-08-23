@@ -141,6 +141,11 @@ export default defineConfig({
                 es: "Objetos",
                 de: "Items",
               },
+              commands: {
+                en: "Commands",
+                es: "Comandos",
+                de: "Befehle",
+              },
               network: {
                 en: "Network",
                 es: "Red",

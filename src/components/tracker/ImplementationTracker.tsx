@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
-import { Search, ChevronDown, Blocks, Sword, Filter, PawPrint, Download, Check } from "lucide-react";
+import { Search, ChevronDown, Blocks, Sword, Filter, PawPrint } from "lucide-react";
+import SegmentedControl from "./SegmentedControl";
 
 interface ClassGroup {
   implemented: boolean;
@@ -31,7 +32,6 @@ export default function ImplementationTracker() {
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
   const [progressMetric, setProgressMetric] = useState<ProgressMetric>("surface");
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
-  const [downloading, setDownloading] = useState(false);
 
   useEffect(() => {
     fetch(import.meta.env.BASE_URL + "data/implementation-status.json")
@@ -86,15 +86,6 @@ export default function ImplementationTracker() {
     });
   };
 
-  const handleDownload = () => {
-    if (!data) return;
-    setDownloading(true);
-    const url = URL.createObjectURL(new Blob([JSON.stringify(data)], { type: "application/json" }));
-    Object.assign(document.createElement("a"), { href: url, download: "implementation-status-release.json" }).click();
-    URL.revokeObjectURL(url);
-    setTimeout(() => setDownloading(false), 1500);
-  };
-
   if (!data) {
     return (
       <div className="flex items-center justify-center py-32">
@@ -133,23 +124,16 @@ export default function ImplementationTracker() {
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
-            <div
-              className="flex rounded-lg bg-teal-100 dark:bg-white/5 border border-teal-200/40 dark:border-white/10 p-0.5"
-              aria-label="Progress calculation"
-            >
-              <MetricButton
-                active={progressMetric === "surface"}
-                onClick={() => setProgressMetric("surface")}
-              >
-                Surface area
-              </MetricButton>
-              <MetricButton
-                active={progressMetric === "classes"}
-                onClick={() => setProgressMetric("classes")}
-              >
-                Behaviors
-              </MetricButton>
-            </div>
+            <SegmentedControl
+              label="Progress calculation"
+              size="sm"
+              value={progressMetric}
+              onChange={setProgressMetric}
+              segments={[
+                { value: "surface", content: "Surface area" },
+                { value: "classes", content: "Behaviors" },
+              ]}
+            />
             <div className="flex items-center gap-3 text-xs">
               <span className="flex items-center gap-1">
                 <span className="inline-block size-2 rounded-full bg-emerald-500 dark:bg-emerald-400" />
@@ -195,21 +179,40 @@ export default function ImplementationTracker() {
 
       {/* Controls */}
       <div className="flex flex-col md:flex-row gap-3 mb-6">
-        {/* Tabs */}
-        <div className="flex rounded-xl bg-teal-100 dark:bg-white/5 border border-teal-200/40 dark:border-white/10 p-1">
-          <TabButton active={tab === "blocks"} onClick={() => setTab("blocks")}>
-            <Blocks className="size-3.5" />
-            Blocks
-          </TabButton>
-          <TabButton active={tab === "items"} onClick={() => setTab("items")}>
-            <Sword className="size-3.5" />
-            Items
-          </TabButton>
-          <TabButton active={tab === "entities"} onClick={() => setTab("entities")}>
-            <PawPrint className="size-3.5" />
-            Entities
-          </TabButton>
-        </div>
+        <SegmentedControl
+          label="Category"
+          value={tab}
+          onChange={setTab}
+          segments={[
+            {
+              value: "blocks",
+              content: (
+                <>
+                  <Blocks className="size-3.5" />
+                  Blocks
+                </>
+              ),
+            },
+            {
+              value: "items",
+              content: (
+                <>
+                  <Sword className="size-3.5" />
+                  Items
+                </>
+              ),
+            },
+            {
+              value: "entities",
+              content: (
+                <>
+                  <PawPrint className="size-3.5" />
+                  Entities
+                </>
+              ),
+            },
+          ]}
+        />
 
         {/* Search */}
         <div className="relative flex-1">
@@ -223,36 +226,25 @@ export default function ImplementationTracker() {
           />
         </div>
 
-        {/* Status filter */}
-        <div className="flex rounded-xl bg-teal-100 dark:bg-white/5 border border-teal-200/40 dark:border-white/10 p-1">
-          <TabButton active={statusFilter === "all"} onClick={() => setStatusFilter("all")}>
-            <Filter className="size-3.5" />
-            All
-          </TabButton>
-          <TabButton active={statusFilter === "complete"} onClick={() => setStatusFilter("complete")}>
-            Complete
-          </TabButton>
-          <TabButton active={statusFilter === "partial"} onClick={() => setStatusFilter("partial")}>
-            Partial
-          </TabButton>
-          <TabButton active={statusFilter === "unimplemented"} onClick={() => setStatusFilter("unimplemented")}>
-            Todo
-          </TabButton>
-        </div>
-
-        {/* Save state action */}
-        <button
-          onClick={handleDownload}
-          title="Download tracker state for release"
-          className={`flex items-center gap-2 px-3 py-2 rounded-xl border transition-all text-sm font-medium cursor-pointer ${
-            downloading
-              ? "bg-emerald-500/20 border-emerald-500/50 text-emerald-700 dark:text-emerald-400"
-              : "bg-teal-100 dark:bg-white/5 border-teal-200/40 dark:border-white/10 text-teal-700 dark:text-white/70 hover:bg-teal-200 dark:hover:bg-white/10 hover:text-teal-950 dark:hover:text-white"
-          }`}
-        >
-          {downloading ? <Check className="size-4" /> : <Download className="size-4" />}
-          <span className="hidden lg:inline">{downloading ? "Saved!" : "Save State"}</span>
-        </button>
+        <SegmentedControl
+          label="Status filter"
+          value={statusFilter}
+          onChange={setStatusFilter}
+          segments={[
+            {
+              value: "all",
+              content: (
+                <>
+                  <Filter className="size-3.5" />
+                  All
+                </>
+              ),
+            },
+            { value: "complete", content: "Complete" },
+            { value: "partial", content: "Partial" },
+            { value: "unimplemented", content: "Todo" },
+          ]}
+        />
       </div>
 
       {/* Results count */}
@@ -271,7 +263,7 @@ export default function ImplementationTracker() {
           return (
             <div
               key={className}
-              className="rounded-xl border border-teal-200/30 dark:border-white/10 bg-white/60 dark:bg-white/[0.03] overflow-hidden transition-all"
+              className="rounded-xl border border-teal-200/30 dark:border-white/10 bg-white/60 dark:bg-white/[0.03] overflow-hidden [content-visibility:auto] [contain-intrinsic-size:auto_50px]"
             >
               <button
                 onClick={() => toggleExpand(className)}
@@ -388,50 +380,4 @@ function StatCard({ label, value, color = "default" }: { label: string; value: n
   );
 }
 
-function TabButton({
-  active,
-  onClick,
-  children,
-}: {
-  active: boolean;
-  onClick: () => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <button
-      onClick={onClick}
-      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all cursor-pointer ${
-        active
-          ? "bg-white dark:bg-white/10 text-teal-950 dark:text-white shadow-sm"
-          : "text-teal-600 dark:text-white/50 hover:text-teal-950 dark:hover:text-white"
-      }`}
-    >
-      {children}
-    </button>
-  );
-}
 
-function MetricButton({
-  active,
-  onClick,
-  children,
-}: {
-  active: boolean;
-  onClick: () => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <button
-      type="button"
-      aria-pressed={active}
-      onClick={onClick}
-      className={`rounded-md px-2.5 py-1 text-xs font-medium transition-all cursor-pointer ${
-        active
-          ? "bg-white dark:bg-white/10 text-teal-950 dark:text-white shadow-sm"
-          : "text-teal-600 dark:text-white/45 hover:text-teal-950 dark:hover:text-white"
-      }`}
-    >
-      {children}
-    </button>
-  );
-}
