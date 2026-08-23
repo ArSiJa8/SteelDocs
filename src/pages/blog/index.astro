@@ -3,6 +3,8 @@ import { getCollection } from "astro:content";
 import { ArrowRight, CalendarDays, Newspaper } from "@lucide/astro";
 import BlogLayout from "@/layouts/BlogLayout.astro";
 
+const t = Astro.locals.t;
+
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
 );
@@ -11,7 +13,7 @@ const featuredPost = posts.find((post) => post.data.featured) ?? posts[0];
 const remainingPosts = posts.filter((post) => post.id !== featuredPost?.id);
 
 const formatDate = (date: Date) =>
-  new Intl.DateTimeFormat("en", {
+  new Intl.DateTimeFormat(Astro.currentLocale ?? "en", {
     day: "numeric",
     month: "long",
     year: "numeric",
@@ -19,8 +21,8 @@ const formatDate = (date: Date) =>
 ---
 
 <BlogLayout
-  title="Blog - SteelMC"
-  description="Announcements, development updates, and stories from the SteelMC team."
+  title={t("blog.metaTitle")}
+  description={t("blog.metaDescription")}
 >
   <main class="relative z-10 mx-auto min-h-screen max-w-280 px-6 pb-24 pt-32">
     <header class="max-w-3xl">
@@ -28,23 +30,22 @@ const formatDate = (date: Date) =>
         class="mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-600/20 bg-emerald-500/10 px-3 py-1.5 font-minecraft text-xs font-bold uppercase tracking-widest text-emerald-700 dark:border-emerald-400/25 dark:text-emerald-300"
       >
         <Newspaper class="size-3.5" />
-        From the workshop
+        {t("blog.badge")}
       </div>
       <h1
         class="font-minecraft text-5xl font-bold leading-none text-teal-950 dark:text-white md:text-7xl"
       >
-        SteelMC <span class="text-emerald-600 dark:text-emerald-400">Blog</span>
+        {t("blog.title")} <span class="text-emerald-600 dark:text-emerald-400">{t("blog.titleHighlight")}</span>
       </h1>
       <p class="mt-5 max-w-2xl text-lg leading-8 text-teal-700 dark:text-white/65">
-        Announcements, technical deep dives, and progress updates from the
-        people building SteelMC.
+        {t("blog.subtitle")}
       </p>
     </header>
 
     {
       featuredPost && (
         <section class="mt-14" aria-labelledby="featured-heading">
-          <h2 id="featured-heading" class="sr-only">Featured post</h2>
+          <h2 id="featured-heading" class="sr-only">{t("blog.featured")}</h2>
           <a
             href={`/blog/${featuredPost.id}/`}
             class="group relative block overflow-hidden rounded-3xl border border-teal-200/80 bg-white/80 p-7 shadow-2xl shadow-teal-950/10 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-emerald-500/40 dark:border-white/10 dark:bg-teal-950/75 dark:shadow-black/20 md:p-10"
@@ -55,7 +56,7 @@ const formatDate = (date: Date) =>
             <div class="relative max-w-3xl">
               <div class="mb-8 flex flex-wrap items-center gap-3 text-sm">
                 <span class="rounded-full bg-emerald-600 px-3 py-1 font-minecraft font-bold text-white">
-                  Featured
+                  {t("blog.featured")}
                 </span>
                 <span class="text-teal-600 dark:text-white/55">
                   {featuredPost.data.category}
@@ -73,7 +74,7 @@ const formatDate = (date: Date) =>
                   {formatDate(featuredPost.data.publishedAt)}
                 </span>
                 <span class="flex items-center gap-2 font-minecraft font-bold text-emerald-700 dark:text-emerald-400">
-                  Read article
+                  {t("blog.readArticle")}
                   <ArrowRight class="size-4 transition-transform group-hover:translate-x-1" />
                 </span>
               </div>
@@ -87,7 +88,7 @@ const formatDate = (date: Date) =>
       remainingPosts.length > 0 && (
         <section class="mt-16" aria-labelledby="latest-heading">
           <h2 id="latest-heading" class="font-minecraft text-2xl font-bold text-teal-950 dark:text-white">
-            Latest posts
+            {t("blog.latestPosts")}
           </h2>
           <div class="mt-6 grid gap-5 md:grid-cols-2">
             {remainingPosts.map((post) => (

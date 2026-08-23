@@ -18,11 +18,12 @@ interface Props {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const t = Astro.locals.t;
 const wordCount = (post.body ?? "").trim().split(/\s+/).filter(Boolean).length;
 const readingTime = Math.max(1, Math.ceil(wordCount / 220));
 
 const formatDate = (date: Date) =>
-  new Intl.DateTimeFormat("en", {
+  new Intl.DateTimeFormat(Astro.currentLocale ?? "en", {
     day: "numeric",
     month: "long",
     year: "numeric",
@@ -46,7 +47,7 @@ const formatDate = (date: Date) =>
       class="inline-flex items-center gap-2 rounded-full px-3 py-2 font-minecraft text-sm font-bold text-teal-700 transition-colors hover:bg-white/60 hover:text-emerald-700 dark:text-white/60 dark:hover:bg-white/10 dark:hover:text-emerald-400"
     >
       <ArrowLeft class="size-4" />
-      All posts
+      {t("blog.allPosts")}
     </a>
 
     <article class="mx-auto mt-8 max-w-4xl">
@@ -60,7 +61,7 @@ const formatDate = (date: Date) =>
           {
             post.data.placeholder && (
               <span class="rounded-full border border-amber-500/30 bg-amber-400/10 px-3 py-1 font-minecraft text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-300">
-                Placeholder
+                {t("blog.placeholder.title")}
               </span>
             )
           }
@@ -87,7 +88,7 @@ const formatDate = (date: Date) =>
           </span>
           <span class="flex items-center gap-2">
             <Clock3 class="size-4" />
-            {readingTime} min read
+            {readingTime} {t("blog.minRead")}
           </span>
         </div>
       </header>
@@ -95,10 +96,9 @@ const formatDate = (date: Date) =>
       {
         post.data.placeholder && (
           <aside class="my-8 rounded-2xl border border-amber-500/30 bg-amber-100/70 p-5 text-amber-950 backdrop-blur-sm dark:bg-amber-400/10 dark:text-amber-100">
-            <p class="font-minecraft font-bold">Draft content</p>
+            <p class="font-minecraft font-bold">{t("blog.placeholder.title")}</p>
             <p class="mt-1 text-sm leading-6 opacity-80">
-              This announcement is placeholder copy. Update its date, details,
-              and status in the Markdown file before publishing it as final.
+              {t("blog.placeholder.body")}
             </p>
           </aside>
         )
@@ -114,7 +114,7 @@ const formatDate = (date: Date) =>
           class="inline-flex items-center gap-2 font-minecraft font-bold text-emerald-700 hover:text-emerald-600 dark:text-emerald-400 dark:hover:text-emerald-300"
         >
           <ArrowLeft class="size-4" />
-          Back to the blog
+          {t("blog.backToBlog")}
         </a>
       </footer>
     </article>
