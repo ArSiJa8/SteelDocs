@@ -2,8 +2,8 @@
   "meta": {
     "source": "nightly",
     "steel_version": "0.15.2+mc26.2",
-    "steel_commit": "987cfbbde617fab0e669f2c08368c31386fa60a1",
-    "steel_committed_at": "2026-08-23T14:11:23+02:00"
+    "steel_commit": "b903ae3f3747d66a9416e3411b1657bde5b2a900",
+    "steel_committed_at": "2026-08-23T16:22:51+02:00"
   },
   "blocks": {
     "GrassBlock": {
@@ -3959,14 +3959,14 @@
       ]
     },
     "InkSacItem": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "ink_sac"
       ]
     },
     "GlowInkSacItem": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "glow_ink_sac"
