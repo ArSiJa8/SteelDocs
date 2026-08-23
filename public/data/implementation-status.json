@@ -1,14 +1,22 @@
 {
+  "meta": {
+    "source": "nightly",
+    "steel_version": "0.15.2+mc26.2",
+    "steel_commit": "f09e625296fc66bf68c7c5c19af53727ec9e8cb2",
+    "steel_committed_at": "2026-08-23T16:36:49+02:00"
+  },
   "blocks": {
     "GrassBlock": {
-      "implemented": false,
-      "todos": [],
+      "implemented": true,
+      "todos": [
+        "Implement SpreadingSnowyBlock random ticks (spreading, turning to dirt when covered) and bonemeal behavior."
+      ],
       "entries": [
         "grass_block"
       ]
     },
     "SnowyBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "podzol"
@@ -793,8 +801,10 @@
       ]
     },
     "JukeboxBlock": {
-      "implemented": false,
-      "todos": [],
+      "implemented": true,
+      "todos": [
+        "Award Stats.PLAY_RECORD once Steel has a statistics foundation."
+      ],
       "entries": [
         "jukebox"
       ]
@@ -826,7 +836,7 @@
       ]
     },
     "SoulSandBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "soul_sand"
@@ -840,8 +850,10 @@
       ]
     },
     "CarvedPumpkinBlock": {
-      "implemented": false,
-      "todos": [],
+      "implemented": true,
+      "todos": [
+        "Add golem spawning behavior (iron, copper, snow) including dropper checks"
+      ],
       "entries": [
         "carved_pumpkin",
         "jack_o_lantern"
@@ -921,7 +933,7 @@
       ]
     },
     "HugeMushroomBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "brown_mushroom_block",
@@ -975,7 +987,6 @@
     "PumpkinBlock": {
       "implemented": true,
       "todos": [
-        "Once CarvedPumpkinBlock is implemented, replace HORIZONTAL_FACING with FACING of CarvedPumpkinBlock.",
         "Award statistic ITEM_USED with SHEARS."
       ],
       "entries": [
@@ -1007,10 +1018,7 @@
     },
     "GlowLichenBlock": {
       "implemented": true,
-      "todos": [
-        ".",
-        "Implement spread, and bonemeal."
-      ],
+      "todos": [],
       "entries": [
         "glow_lichen"
       ]
@@ -1041,8 +1049,10 @@
       ]
     },
     "MyceliumBlock": {
-      "implemented": false,
-      "todos": [],
+      "implemented": true,
+      "todos": [
+        "Implement SpreadingSnowyBlock random ticks (spreading, turning to dirt when covered)."
+      ],
       "entries": [
         "mycelium"
       ]
@@ -1220,7 +1230,7 @@
       ]
     },
     "DragonEggBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "dragon_egg"
@@ -1595,18 +1605,14 @@
     },
     "ChorusPlantBlock": {
       "implemented": true,
-      "todos": [
-        "Implement ticking and full shape-update side effects."
-      ],
+      "todos": [],
       "entries": [
         "chorus_plant"
       ]
     },
     "ChorusFlowerBlock": {
       "implemented": true,
-      "todos": [
-        "Implement ticking and growth outside worldgen."
-      ],
+      "todos": [],
       "entries": [
         "chorus_flower"
       ]
@@ -1868,8 +1874,10 @@
       ]
     },
     "ConduitBlock": {
-      "implemented": false,
-      "todos": [],
+      "implemented": true,
+      "todos": [
+        "implement Block entity"
+      ],
       "entries": [
         "conduit"
       ]
@@ -3942,21 +3950,23 @@
       ]
     },
     "SpyglassItem": {
-      "implemented": false,
-      "todos": [],
+      "implemented": true,
+      "todos": [
+        "Award `Stats.ITEM_USED` once Steel has a statistics foundation."
+      ],
       "entries": [
         "spyglass"
       ]
     },
     "InkSacItem": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "ink_sac"
       ]
     },
     "GlowInkSacItem": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "glow_ink_sac"
@@ -4237,7 +4247,7 @@
       ]
     },
     "LeadItem": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "lead"
