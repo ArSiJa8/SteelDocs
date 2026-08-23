@@ -2,6 +2,7 @@
 import { getCollection, render, type CollectionEntry } from "astro:content";
 import { ArrowLeft, CalendarDays, Clock3 } from "@lucide/astro";
 import BlogLayout from "@/layouts/BlogLayout.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -43,7 +44,7 @@ const formatDate = (date: Date) =>
 >
   <main class="relative z-10 mx-auto min-h-screen max-w-280 px-6 pb-24 pt-28">
     <a
-      href="/blog/"
+      href={getRelativeLocaleUrl(Astro.currentLocale || "en", "/blog/")}
       class="inline-flex items-center gap-2 rounded-full px-3 py-2 font-minecraft text-sm font-bold text-teal-700 transition-colors hover:bg-white/60 hover:text-emerald-700 dark:text-white/60 dark:hover:bg-white/10 dark:hover:text-emerald-400"
     >
       <ArrowLeft class="size-4" />
@@ -110,7 +111,7 @@ const formatDate = (date: Date) =>
 
       <footer class="mt-14 border-t border-teal-200/80 pt-8 dark:border-white/10">
         <a
-          href="/blog/"
+          href={getRelativeLocaleUrl(Astro.currentLocale || "en", "/blog/")}
           class="inline-flex items-center gap-2 font-minecraft font-bold text-emerald-700 hover:text-emerald-600 dark:text-emerald-400 dark:hover:text-emerald-300"
         >
           <ArrowLeft class="size-4" />

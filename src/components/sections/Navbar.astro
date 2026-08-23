@@ -90,7 +90,7 @@ const { showLanguageSwitcher = true } = Astro.props;
     <div class="flex items-center gap-1">
       <!-- Blog -->
       <a
-        href="/blog/"
+        href={getRelativeLocaleUrl(Astro.currentLocale || "en", "/blog")}
         class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-sm text-teal-600 dark:text-white/60 hover:text-teal-950 dark:hover:text-white hover:bg-teal-100 dark:hover:bg-white/10 transition-all"
         aria-label="Blog"
       >
@@ -144,17 +144,17 @@ const { showLanguageSwitcher = true } = Astro.props;
             >
               {
                 supportedLocales.map((locale, i) => {
-                  let url =
-                    Astro.currentLocale == "en"
-                      ? Astro.routePattern
-                      : Astro.routePattern.replace(
-                          "/" + Astro.currentLocale,
-                          "",
-                        );
-                  url = url.trim().length == 0 ? "/" : url;
+                  const currentPath = Astro.url.pathname;
+                  const pathWithoutLocale =
+                    Astro.currentLocale && Astro.currentLocale !== "en"
+                      ? currentPath.replace(
+                          new RegExp(`^/${Astro.currentLocale}(/|$)`),
+                          "/",
+                        )
+                      : currentPath;
                   return (
                     <a
-                      href={getRelativeLocaleUrl(locale, url)}
+                      href={getRelativeLocaleUrl(locale, pathWithoutLocale)}
                       role="menuitem"
                       class:list={[
                         "flex font-minecraft items-center gap-2.5 px-3 py-2 text-sm text-teal-700 dark:text-white/70 hover:text-teal-950 dark:hover:text-white hover:bg-teal-50 dark:hover:bg-white/10 transition-colors",
