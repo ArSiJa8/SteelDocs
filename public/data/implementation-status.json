@@ -2,8 +2,8 @@
   "meta": {
     "source": "nightly",
     "steel_version": "0.15.2+mc26.2",
-    "steel_commit": "b903ae3f3747d66a9416e3411b1657bde5b2a900",
-    "steel_committed_at": "2026-08-23T16:22:51+02:00"
+    "steel_commit": "d3967d877fd395c417850f6de21fc4ede8a4677f",
+    "steel_committed_at": "2026-08-23T16:27:53+02:00"
   },
   "blocks": {
     "GrassBlock": {
@@ -4247,7 +4247,7 @@
       ]
     },
     "LeadItem": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "lead"
