@@ -2,8 +2,8 @@
   "meta": {
     "source": "nightly",
     "steel_version": "0.15.2+mc26.2",
-    "steel_commit": "c21727a8dc7c43d3f06c40de9b38937fbcbcef8d",
-    "steel_committed_at": "2026-08-25T00:36:37+02:00"
+    "steel_commit": "50bc5ab38fcb79f749e929dcb682e25227455a0c",
+    "steel_committed_at": "2026-08-25T01:34:46+02:00"
   },
   "blocks": {
     "GrassBlock": {
@@ -444,9 +444,8 @@
     "FireBlock": {
       "implemented": true,
       "todos": [
-        "|| is_valid_fire_location (check adjacent flammable blocks once flammability exists)",
-        "with the rest of fire ticking.",
-        "Implement full vanilla behavior beyond can_survive."
+        "Include adjacent flammable blocks once the flammability system exists.",
+        "Implement vanilla random tick behavior for fire spreading and aging"
       ],
       "entries": [
         "fire"
