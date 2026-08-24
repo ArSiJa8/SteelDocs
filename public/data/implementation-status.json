@@ -2,8 +2,8 @@
   "meta": {
     "source": "nightly",
     "steel_version": "0.15.2+mc26.2",
-    "steel_commit": "1eda54c2a97bf2e1134174b57643c22bd0870c3f",
-    "steel_committed_at": "2026-08-24T02:10:10+02:00"
+    "steel_commit": "c21727a8dc7c43d3f06c40de9b38937fbcbcef8d",
+    "steel_committed_at": "2026-08-25T00:36:37+02:00"
   },
   "blocks": {
     "GrassBlock": {
@@ -2036,9 +2036,7 @@
     },
     "NetherFungusBlock": {
       "implemented": true,
-      "todos": [
-        "Implement full vanilla behavior beyond can_survive."
-      ],
+      "todos": [],
       "entries": [
         "warped_fungus",
         "crimson_fungus"
