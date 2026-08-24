@@ -2,8 +2,8 @@
   "meta": {
     "source": "nightly",
     "steel_version": "0.15.2+mc26.2",
-    "steel_commit": "7d1aae4c66002cf4748afda7db6c8e800020f630",
-    "steel_committed_at": "2026-08-24T01:12:09+02:00"
+    "steel_commit": "1eda54c2a97bf2e1134174b57643c22bd0870c3f",
+    "steel_committed_at": "2026-08-24T02:10:10+02:00"
   },
   "blocks": {
     "GrassBlock": {
@@ -829,7 +829,7 @@
       ]
     },
     "NetherrackBlock": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "netherrack"
