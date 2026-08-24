@@ -8,6 +8,7 @@
     "devWarningText": "Search is only available in production builds",
     "discordLabel": "Join our Discord",
     "githubLabel": "GitHub repository",
+    "blog": "Blog",
     "download": "Download",
     "tracker": "Tracker",
     "trackerLabel": "Implementation tracker"
