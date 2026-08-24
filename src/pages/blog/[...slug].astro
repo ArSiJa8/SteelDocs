@@ -19,7 +19,8 @@ interface Props {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const t = Astro.locals.t;
+import { t as tBase } from "@/lib/utils";
+function t(key: string): string {return tBase(Astro, key)}
 const wordCount = (post.body ?? "").trim().split(/\s+/).filter(Boolean).length;
 const readingTime = Math.max(1, Math.ceil(wordCount / 220));
 

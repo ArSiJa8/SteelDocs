@@ -1,19 +1,26 @@
 {
-    "langFlag": "🇪🇸",
-    "langName": "Español",
+  "langFlag": "🇪🇸",
+  "langName": "Español",
+  "githubHref": "https://github.com/Steel-Foundation/SteelMC",
+
+  "header": {
     "searchPlaceholder": "Buscar en la documentación...",
     "devWarningText": "La busqueda solo está disponible en producción",
     "discordLabel": "Únete a nuestro Discord",
     "githubLabel": "Repositorio de Github",
+    "blog": "Blog",
     "download": "Descargar",
-    "githubHref": "https://github.com/Steel-Foundation/SteelMC",
+    "tracker": "Tracker",
+    "trackerLabel": "Seguimiento de implementación"
+  },
+
+  "download": {
     "version": "Versión",
     "latestVersion": "Última versión",
     "needOlderVersion": "¿Necesitas una versión anterior?",
     "viewPreviousVersions": "Ver versiones anteriores",
     "olderVersions": "Versiones anteriores",
     "forMinecraft": "Para Minecraft",
-    "releasedDate": "Lanzada el",
-    "tracker": "Tracker",
-    "trackerLabel": "Seguimiento de implementación"
+    "releasedDate": "Lanzada el"
+  }
 }

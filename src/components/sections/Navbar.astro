@@ -19,6 +19,9 @@ interface Props {
   showLanguageSwitcher?: boolean;
 }
 
+import { t as tBase } from "@/lib/utils";
+function t(key: string): string {return tBase(Astro, key)}
+
 const { showLanguageSwitcher = true } = Astro.props;
 ---
 
@@ -57,7 +60,7 @@ const { showLanguageSwitcher = true } = Astro.props;
       <input
         id="navbar-search"
         type="search"
-        placeholder={Astro.locals.t("searchPlaceholder")}
+        placeholder={t("header.searchPlaceholder")}
         autocomplete="off"
         class="w-full pl-8 pr-3 py-1.5 text-sm bg-teal-100 dark:bg-white/8 border border-teal-300 dark:border-white/15 rounded-full text-teal-950 dark:text-white placeholder:text-teal-400 dark:placeholder:text-white/35 focus:outline-none focus:border-emerald-500/60 dark:focus:border-emerald-400/50 transition-all"
       />
@@ -78,7 +81,7 @@ const { showLanguageSwitcher = true } = Astro.props;
           id="search-dev-warning"
           class="hidden px-4 py-3 text-sm text-teal-500 dark:text-white/50"
         >
-          {Astro.locals.t("devWarningText")}
+          {t("header.devWarningText")}
         </p>
       </div>
     </form>
@@ -92,31 +95,31 @@ const { showLanguageSwitcher = true } = Astro.props;
       <a
         href={getRelativeLocaleUrl(Astro.currentLocale || "en", "/blog")}
         class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-sm text-teal-600 dark:text-white/60 hover:text-teal-950 dark:hover:text-white hover:bg-teal-100 dark:hover:bg-white/10 transition-all"
-        aria-label="Blog"
+        aria-label={t("header.blog")}
       >
         <Newspaper class="size-3.5 shrink-0" />
-        <span class="hidden font-minecraft lg:inline">Blog</span>
+        <span class="hidden font-minecraft lg:inline">{t("header.blog")}</span>
       </a>
       <!-- Download -->
       <a
         href={getRelativeLocaleUrl(Astro.currentLocale || "en", "/download")}
         class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-sm text-teal-600 dark:text-white/60 hover:text-teal-950 dark:hover:text-white hover:bg-teal-100 dark:hover:bg-white/10 transition-all"
-        aria-label={Astro.locals.t("download")}
+        aria-label={t("header.download")}
       >
         <Download class="size-3.5 shrink-0" />
         <span class="hidden font-minecraft sm:inline"
-          >{Astro.locals.t("download")}</span
+          >{t("header.download")}</span
         >
       </a>
       <!-- Tracker -->
       <a
         href={getRelativeLocaleUrl(Astro.currentLocale || "en", "/tracker")}
         class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-sm text-teal-600 dark:text-white/60 hover:text-teal-950 dark:hover:text-white hover:bg-teal-100 dark:hover:bg-white/10 transition-all"
-        aria-label={Astro.locals.t("trackerLabel")}
+        aria-label={t("header.trackerLabel")}
       >
         <ChartNoAxesCombined class="size-3.5 shrink-0" />
         <span class="hidden font-minecraft sm:inline"
-          >{Astro.locals.t("tracker")}</span
+          >{t("header.tracker")}</span
         >
       </a>
 
@@ -193,7 +196,7 @@ const { showLanguageSwitcher = true } = Astro.props;
         target="_blank"
         rel="noopener noreferrer"
         class="hidden sm:inline-flex p-1.5 rounded-xl text-teal-600 dark:text-white/60 hover:text-teal-950 dark:hover:text-white hover:bg-teal-100 dark:hover:bg-white/10 transition-all"
-        aria-label={Astro.locals.t("discordLabel")}
+        aria-label={t("header.discordLabel")}
       >
         <svg
           class="size-4"
@@ -210,11 +213,11 @@ const { showLanguageSwitcher = true } = Astro.props;
 
       <!-- GitHub -->
       <a
-        href="https://github.com/Steel-Foundation/SteelMC"
+        href={Astro.locals.t("githubHref")}
         target="_blank"
         rel="noopener noreferrer"
         class="hidden sm:inline-flex p-1.5 rounded-xl text-teal-600 dark:text-white/60 hover:text-teal-950 dark:hover:text-white hover:bg-teal-100 dark:hover:bg-white/10 transition-all"
-        aria-label={Astro.locals.t("githubLabel")}
+        aria-label={t("header.githubLabel")}
       >
         <Github class="size-4" />
       </a>

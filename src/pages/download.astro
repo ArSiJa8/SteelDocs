@@ -13,7 +13,8 @@ import {
 } from "@lucide/astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 
-const t = Astro.locals.t;
+import { t as tBase } from "@/lib/utils";
+function t(key: string): string {return tBase(Astro, key)}
 
 const versions = await getVersions();
 const [latestVersion, ...olderVersions] = versions;
@@ -104,7 +105,7 @@ function browseOlderLabel(count: number) {
                     <a
                       href={build.download}
                       download={build.name}
-                      class="group flex min-h-14 items-center justify-between gap-4 rounded-2xl border border-teal-200/70 bg-white px-4 py-3 text-teal-950 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-500/50 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 dark:border-white/10 dark:bg-white/[0.06] dark:text-white dark:hover:border-emerald-400/40 dark:hover:bg-white/10 sm:px-5"
+                      class="group flex min-h-14 items-center justify-between gap-4 rounded-2xl border border-teal-200/70 bg-white px-4 py-3 text-teal-950 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-500/50 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 dark:border-white/10 dark:bg-white/6 dark:text-white dark:hover:border-emerald-400/40 dark:hover:bg-white/10 sm:px-5"
                     >
                       <span>
                         <span class="block font-minecraft text-base font-bold sm:text-lg">
@@ -139,7 +140,7 @@ function browseOlderLabel(count: number) {
           {olderVersions.length > 0 && (
             <section class="mt-7" aria-labelledby="release-archive">
               <details class="group overflow-hidden rounded-3xl border border-teal-200/60 bg-white/70 shadow-xl shadow-teal-950/5 backdrop-blur-lg dark:border-white/10 dark:bg-teal-950/60">
-                <summary class="flex cursor-pointer list-none items-center gap-4 px-5 py-5 transition-colors hover:bg-white/60 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-emerald-500 dark:hover:bg-white/5 sm:px-7 sm:py-6 [&::-webkit-details-marker]:hidden">
+                <summary class="flex cursor-pointer list-none items-center gap-4 px-5 py-5 transition-colors hover:bg-white/60 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-emerald-500 dark:hover:bg-white/5 sm:px-7 sm:py-6 [&::-webkit-details-marker]:hidden">
                   <span class="grid size-11 shrink-0 place-items-center rounded-2xl bg-teal-100 text-teal-700 dark:bg-white/10 dark:text-white/70">
                     <Clock3 class="size-5" />
                   </span>

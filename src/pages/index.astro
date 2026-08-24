@@ -5,13 +5,8 @@ import Hero from "@/components/sections/Hero.astro";
 import ChooseDocs from "@/components/sections/ChooseDocs.astro";
 import Community from "@/components/sections/Community.astro";
 import FooterStatus from "@/components/sections/FooterStatus.astro";
-
-const t = Astro.locals.t;
-
-const rotatingCount = parseInt(t("index.rotating.count") ?? "0");
-const rotatingTexts = Array.from({ length: rotatingCount }, (_, i) =>
-  t(`index.rotating.${i}` as any),
-);
+import { t as tBase, tArr } from "@/lib/utils";
+function t(key: string): string {return tBase(Astro, key)}
 ---
 
 <Layout
@@ -52,8 +47,8 @@ const rotatingTexts = Array.from({ length: rotatingCount }, (_, i) =>
       descriptionAfter={t("index.community.descriptionAfter")}
     />
     <FooterStatus
-      prefix={t("index.rotating.prefix")}
-      rotatingTexts={rotatingTexts}
+      prefix={t("index.rotatingPrefix")}
+      rotatingTexts={tArr(Astro, "index.rotating")}
     />
   </main>
 </Layout>

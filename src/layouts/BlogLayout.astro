@@ -16,6 +16,9 @@ interface Props {
   author?: string;
 }
 
+import { t as tBase } from "@/lib/utils";
+function t(key: string): string {return tBase(Astro, key)}
+
 const {
   title,
   description,
@@ -48,7 +51,7 @@ const {
     <div
       class="mx-auto flex max-w-280 flex-col gap-2 px-6 py-8 text-sm text-teal-700 dark:text-white/55 sm:flex-row sm:items-center sm:justify-between"
     >
-      <p>{Astro.locals.t("blog.footer")}</p>
+      <p>{t("blog.footer")}</p>
       <a
         href={Astro.currentLocale
           ? getRelativeLocaleUrl(Astro.currentLocale, "/")
