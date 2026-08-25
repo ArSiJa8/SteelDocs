@@ -2,8 +2,8 @@
   "meta": {
     "source": "nightly",
     "steel_version": "0.15.2+mc26.2",
-    "steel_commit": "b3cdff21f240b9dd6c3984502e3b7215590660d5",
-    "steel_committed_at": "2026-08-25T04:10:49+02:00"
+    "steel_commit": "cab59d37b1b63d36ab016abb9bf48f52077be21d",
+    "steel_committed_at": "2026-08-25T21:30:36+02:00"
   },
   "blocks": {
     "GrassBlock": {
@@ -3715,9 +3715,7 @@
     },
     "FoodOnAStickItem": {
       "implemented": true,
-      "todos": [
-        "Award Stats.ITEM_USED once the stat foundation exists."
-      ],
+      "todos": [],
       "entries": [
         "carrot_on_a_stick",
         "warped_fungus_on_a_stick"
@@ -3945,9 +3943,7 @@
     },
     "SpyglassItem": {
       "implemented": true,
-      "todos": [
-        "Award `Stats.ITEM_USED` once Steel has a statistics foundation."
-      ],
+      "todos": [],
       "entries": [
         "spyglass"
       ]
@@ -4035,9 +4031,7 @@
     },
     "EnderpearlItem": {
       "implemented": true,
-      "todos": [
-        "award the ITEM_USED stat once a stats system exists."
-      ],
+      "todos": [],
       "entries": [
         "ender_pearl"
       ]
@@ -4226,9 +4220,7 @@
     },
     "FireworkRocketItem": {
       "implemented": true,
-      "todos": [
-        "Award `Stats.ITEM_USED` once Steel has a statistics foundation."
-      ],
+      "todos": [],
       "entries": [
         "firework_rocket"
       ]
