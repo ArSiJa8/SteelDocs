@@ -184,15 +184,14 @@ export default defineConfig({
           label: "English",
           lang: "en",
         },
-        // Temporarily disabled until the translations are ready.
-        // de: {
-        //   label: "Deutsch",
-        //   lang: "de",
-        // },
-        // es: {
-        //   label: "Español",
-        //   lang: "es",
-        // },
+        de: {
+          label: "Deutsch",
+          lang: "de",
+        },
+        es: {
+          label: "Español",
+          lang: "es",
+        },
       },
     }),
     react(),
