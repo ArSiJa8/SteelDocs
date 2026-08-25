@@ -2,8 +2,8 @@
   "meta": {
     "source": "nightly",
     "steel_version": "0.15.2+mc26.2",
-    "steel_commit": "50bc5ab38fcb79f749e929dcb682e25227455a0c",
-    "steel_committed_at": "2026-08-25T01:34:46+02:00"
+    "steel_commit": "b3cdff21f240b9dd6c3984502e3b7215590660d5",
+    "steel_committed_at": "2026-08-25T04:10:49+02:00"
   },
   "blocks": {
     "GrassBlock": {
@@ -3773,7 +3773,6 @@
     "ShovelItem": {
       "implemented": true,
       "todos": [
-        "Play SoundEvents.SHOVEL_FLATTEN",
         "CampfireBlock::dowse() — eject cooking items",
         "hurt_and_break(1, ...) — shovels take durability damage"
       ],
