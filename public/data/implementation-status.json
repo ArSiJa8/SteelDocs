@@ -2,8 +2,8 @@
   "meta": {
     "source": "nightly",
     "steel_version": "0.15.2+mc26.2",
-    "steel_commit": "cab59d37b1b63d36ab016abb9bf48f52077be21d",
-    "steel_committed_at": "2026-08-25T21:30:36+02:00"
+    "steel_commit": "5b79cdce22d176f271dcac83c4c36357245f48c2",
+    "steel_committed_at": "2026-08-26T01:17:15+02:00"
   },
   "blocks": {
     "GrassBlock": {
@@ -3894,7 +3894,7 @@
       ]
     },
     "EggItem": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "egg",
@@ -4578,7 +4578,7 @@
       ]
     },
     "Chicken": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "chicken"
@@ -4655,7 +4655,7 @@
       ]
     },
     "ThrownEgg": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "egg"
