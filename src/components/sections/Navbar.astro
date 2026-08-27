@@ -22,17 +22,41 @@ import { t as tBase } from "@/lib/utils";
 function t(key: string): string {return tBase(Astro, key)}
 
 const { showLanguageSwitcher = true } = Astro.props;
+const navbarCopy = Object.fromEntries(
+  supportedLocales.map((locale) => [
+    locale,
+    {
+      code: locale.toUpperCase(),
+      search: Astro.locals.t("header.searchPlaceholder", { lng: locale }),
+      language: Astro.locals.t("languageSelect.accessibleLabel", { lng: locale }),
+      blog: Astro.locals.t("header.blog", { lng: locale }),
+      download: Astro.locals.t("header.download", { lng: locale }),
+      tracker: Astro.locals.t("header.tracker", { lng: locale }),
+      trackerLabel: Astro.locals.t("header.trackerLabel", { lng: locale }),
+      noResults: Astro.locals.t("pagefind.zero_results", { lng: locale }),
+      devWarning: Astro.locals.t("header.devWarningText", { lng: locale }),
+    },
+  ]),
+);
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 px-2 pt-2 max-w-280 mx-auto">
+<header
+  class="fixed top-0 left-0 right-0 z-50 px-2 pt-2 max-w-280 mx-auto"
+  transition:name="main-navbar"
+  transition:persist
+  transition:animate="none"
+  data-navbar-persist
+  data-navbar-copy={JSON.stringify(navbarCopy)}
+>
   <nav
-    class="flex items-center gap-3 px-4 py-2.5 rounded-2xl backdrop-blur-md bg-white/80 dark:bg-teal-950/70 border border-teal-200/60 dark:border-white/10 shadow-xl"
+    class="surface-smoked flex items-center gap-3 px-4 py-2.5 rounded-2xl backdrop-blur-md bg-white/80 dark:bg-teal-950/70 border border-teal-200/60 dark:border-white/10 shadow-xl"
   >
     <!-- Logo -->
     <a
       href={Astro.currentLocale
         ? getRelativeLocaleUrl(Astro.currentLocale, "/")
         : "/"}
+      data-localized-path="/"
       class="flex items-center gap-2 font-minecraft font-bold text-xl text-teal-950 dark:text-white shrink-0 mr-2"
       aria-label="SteelMC home"
     >
@@ -61,23 +85,25 @@ const { showLanguageSwitcher = true } = Astro.props;
         type="search"
         placeholder={t("header.searchPlaceholder")}
         autocomplete="off"
-        class="w-full pl-8 pr-3 py-1.5 text-sm bg-teal-100 dark:bg-white/8 border border-teal-300 dark:border-white/15 rounded-full text-teal-950 dark:text-white placeholder:text-teal-400 dark:placeholder:text-white/35 focus:outline-none focus:border-emerald-500/60 dark:focus:border-emerald-400/50 transition-all"
+        class="w-full pl-8 pr-3 py-1.5 text-sm bg-teal-100 dark:bg-white/8 border border-teal-300 dark:border-white/15 rounded-2xl text-teal-950 dark:text-white placeholder:text-teal-400 dark:placeholder:text-white/35 focus:outline-none focus:border-emerald-500/60 dark:focus:border-emerald-400/50 transition-all"
       />
       <!-- Results dropdown -->
       <div
         id="search-results"
-        class="absolute top-full left-0 right-0 mt-1.5 rounded-xl bg-white dark:bg-teal-900/95 backdrop-blur-md border border-teal-200 dark:border-white/10 shadow-2xl hidden overflow-hidden"
+        class="surface-smoked absolute top-full left-0 right-0 mt-1.5 rounded-2xl bg-white/80 dark:bg-teal-950/80 backdrop-blur-xl border border-teal-200/60 dark:border-white/10 shadow-2xl hidden overflow-hidden"
         role="listbox"
       >
         <div id="search-results-list"></div>
         <p
           id="search-no-results"
+          data-search-message="noResults"
           class="hidden px-4 py-3 text-sm text-teal-500 dark:text-white/50"
         >
           {Astro.locals.t("pagefind.zero_results")}
         </p>
         <p
           id="search-dev-warning"
+          data-search-message="devWarning"
           class="hidden px-4 py-3 text-sm text-teal-500 dark:text-white/50"
         >
           {t("header.devWarningText")}
@@ -93,31 +119,37 @@ const { showLanguageSwitcher = true } = Astro.props;
       <!-- Blog -->
       <a
         href={getRelativeLocaleUrl(Astro.currentLocale || "en", "/blog")}
+        data-localized-path="/blog/"
+        data-navbar-link="blog"
         class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-sm text-teal-600 dark:text-white/60 hover:text-teal-950 dark:hover:text-white hover:bg-teal-100 dark:hover:bg-white/10 transition-all"
         aria-label={t("header.blog")}
       >
         <Newspaper class="size-3.5 shrink-0" />
-        <span class="hidden font-minecraft lg:inline">{t("header.blog")}</span>
+        <span class="hidden font-minecraft lg:inline" data-navbar-label="blog">{t("header.blog")}</span>
       </a>
       <!-- Download -->
       <a
         href={getRelativeLocaleUrl(Astro.currentLocale || "en", "/download")}
+        data-localized-path="/download/"
+        data-navbar-link="download"
         class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-sm text-teal-600 dark:text-white/60 hover:text-teal-950 dark:hover:text-white hover:bg-teal-100 dark:hover:bg-white/10 transition-all"
         aria-label={t("header.download")}
       >
         <Download class="size-3.5 shrink-0" />
-        <span class="hidden font-minecraft sm:inline"
+        <span class="hidden font-minecraft sm:inline" data-navbar-label="download"
           >{t("header.download")}</span
         >
       </a>
       <!-- Tracker -->
       <a
         href={getRelativeLocaleUrl(Astro.currentLocale || "en", "/tracker")}
+        data-localized-path="/tracker/"
+        data-navbar-link="tracker"
         class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-sm text-teal-600 dark:text-white/60 hover:text-teal-950 dark:hover:text-white hover:bg-teal-100 dark:hover:bg-white/10 transition-all"
         aria-label={t("header.trackerLabel")}
       >
         <ChartNoAxesCombined class="size-3.5 shrink-0" />
-        <span class="hidden font-minecraft sm:inline"
+        <span class="hidden font-minecraft sm:inline" data-navbar-label="tracker"
           >{t("header.tracker")}</span
         >
       </a>
@@ -142,7 +174,7 @@ const { showLanguageSwitcher = true } = Astro.props;
             <div
               id="lang-menu"
               role="menu"
-              class="absolute right-0 top-full mt-1.5 w-36 rounded-xl bg-white dark:bg-teal-900/95 backdrop-blur-md border border-teal-200 dark:border-white/10 shadow-2xl hidden"
+              class="lang-menu surface-smoked absolute right-0 top-full mt-1.5 w-36 rounded-2xl bg-white/80 dark:bg-teal-950/80 backdrop-blur-xl border border-teal-200/60 dark:border-white/10 shadow-2xl overflow-hidden"
             >
               {
                 supportedLocales.map((locale, i) => {
@@ -157,6 +189,7 @@ const { showLanguageSwitcher = true } = Astro.props;
                   return (
                     <a
                       href={getRelativeLocaleUrl(locale, pathWithoutLocale)}
+                      data-language-option={locale}
                       role="menuitem"
                       class:list={[
                         "flex font-minecraft items-center gap-2.5 px-3 py-2 text-sm text-teal-700 dark:text-white/70 hover:text-teal-950 dark:hover:text-white hover:bg-teal-50 dark:hover:bg-white/10 transition-colors",
@@ -166,7 +199,7 @@ const { showLanguageSwitcher = true } = Astro.props;
                     >
                       <span aria-hidden="true">
                         {Astro.locals.t("langFlag", "🇬🇧", { lng: locale })}
-                      </span>{" "}
+                      </span>
                       {Astro.locals.t("langName", "English", { lng: locale })}
                     </a>
                   );
@@ -233,24 +266,74 @@ const { showLanguageSwitcher = true } = Astro.props;
 </header>
 
 <script>
+  const navbar = document.querySelector<HTMLElement>("[data-navbar-persist]");
+  const navbarCopy = JSON.parse(navbar?.dataset.navbarCopy ?? "{}");
+
+  function currentLocaleCode() {
+    const language = document.documentElement.lang.toLowerCase();
+    return language.startsWith("de") ? "de" : language.startsWith("es") ? "es" : "en";
+  }
+
+  function syncPersistentNavbarLocale() {
+    const locale = currentLocaleCode();
+    const copy = navbarCopy[locale] ?? navbarCopy.en;
+    if (!copy) return;
+    const prefix = locale === "en" ? "" : `/${locale}`;
+
+    const label = document.getElementById("lang-label");
+    if (label) label.textContent = copy.code;
+
+    const languageButton = document.getElementById("lang-btn");
+    languageButton?.setAttribute("aria-label", copy.language);
+
+    const searchInput = document.getElementById("navbar-search");
+    searchInput?.setAttribute("placeholder", copy.search);
+    document.querySelector<HTMLElement>("[data-search-message=\"noResults\"]")!.textContent = copy.noResults;
+    document.querySelector<HTMLElement>("[data-search-message=\"devWarning\"]")!.textContent = copy.devWarning;
+
+    (["blog", "download", "tracker"] as const).forEach((key) => {
+      const link = document.querySelector<HTMLElement>(`[data-navbar-link="${key}"]`);
+      const text = document.querySelector<HTMLElement>(`[data-navbar-label="${key}"]`);
+      if (text) text.textContent = copy[key];
+      if (link) link.setAttribute("aria-label", key === "tracker" ? copy.trackerLabel : copy[key]);
+    });
+
+    document.querySelectorAll<HTMLAnchorElement>("[data-localized-path]").forEach((link) => {
+      link.href = `${prefix}${link.dataset.localizedPath}`;
+    });
+
+    const pathWithoutLocale = locale === "en"
+      ? window.location.pathname
+      : window.location.pathname.replace(new RegExp(`^/${locale}(/|$)`), "/");
+    document.querySelectorAll<HTMLAnchorElement>("[data-language-option]").forEach((link) => {
+      const optionLocale = link.dataset.languageOption;
+      const isDefaultLocale = optionLocale === "root" || optionLocale === "en";
+      link.href = isDefaultLocale ? pathWithoutLocale : `/${optionLocale}${pathWithoutLocale}`;
+    });
+  }
+
+  function initNavbar() {
+  if (!navbar || navbar.dataset.initialized === "true") return;
+  navbar.dataset.initialized = "true";
+
   // --- Language dropdown ---
   const langBtn = document.getElementById("lang-btn");
   const langMenu = document.getElementById("lang-menu");
   const langChevron = document.getElementById("lang-chevron");
 
   function closeLang() {
-    langMenu?.classList.add("hidden");
+    langMenu?.classList.remove("is-open");
     langChevron?.classList.remove("rotate-180");
     langBtn?.setAttribute("aria-expanded", "false");
   }
 
   langBtn?.addEventListener("click", (e) => {
     e.stopPropagation();
-    const isOpen = !langMenu?.classList.contains("hidden");
+    const isOpen = langMenu?.classList.contains("is-open");
     if (isOpen) {
       closeLang();
     } else {
-      langMenu?.classList.remove("hidden");
+      langMenu?.classList.add("is-open");
       langChevron?.classList.add("rotate-180");
       langBtn?.setAttribute("aria-expanded", "true");
     }
@@ -296,6 +379,7 @@ const { showLanguageSwitcher = true } = Astro.props;
   const searchDevWarning = document.getElementById("search-dev-warning");
 
   let pagefind: any = null;
+  let pagefindLoading: Promise<void> | null = null;
   let debounceTimer: ReturnType<typeof setTimeout>;
 
   const closeResults = () => searchResults?.classList.add("hidden");
@@ -310,9 +394,7 @@ const { showLanguageSwitcher = true } = Astro.props;
       showResults();
     });
   } else {
-    // Lazy-load pagefind on first interaction
-    let pagefindLoading: Promise<void> | null = null;
-
+    // Lazy-load the index for the active site language on first interaction.
     const loadPagefind = () => {
       if (pagefindLoading) return pagefindLoading;
       const bundlePath =
@@ -401,9 +483,51 @@ const { showLanguageSwitcher = true } = Astro.props;
       closeResults();
     }
   });
+
+  document.addEventListener("astro:before-swap", () => {
+    clearTimeout(debounceTimer);
+    void pagefind?.destroy?.();
+    pagefind = null;
+    pagefindLoading = null;
+    searchResultsList?.replaceChildren();
+    closeResults();
+  });
+  }
+
+  initNavbar();
+  syncPersistentNavbarLocale();
+  document.addEventListener("astro:page-load", initNavbar);
+  document.addEventListener("astro:page-load", syncPersistentNavbarLocale);
 </script>
 
 <style>
+  .lang-menu {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-0.5rem) scale(0.96);
+    transform-origin: top right;
+    transition: opacity 160ms ease, transform 240ms cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 240ms;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .lang-menu.is-open {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+    transition-delay: 0s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lang-menu,
+    .lang-menu.is-open {
+      transition: none;
+      transform: none;
+    }
+  }
+
   #search-results mark {
     background: transparent;
     color: rgb(52 211 153); /* emerald-400 */
