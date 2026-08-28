@@ -2,8 +2,8 @@
   "meta": {
     "source": "nightly",
     "steel_version": "0.15.2+mc26.2",
-    "steel_commit": "d51b2bdb7a6086e8123005ab1bfafefff12e7355",
-    "steel_committed_at": "2026-08-26T21:28:38+02:00"
+    "steel_commit": "36156e984018a77ba0a61850e532360979dc672e",
+    "steel_committed_at": "2026-08-28T17:31:43+02:00"
   },
   "blocks": {
     "GrassBlock": {
@@ -554,9 +554,7 @@
     },
     "CraftingTableBlock": {
       "implemented": true,
-      "todos": [
-        "Award stat INTERACT_WITH_CRAFTING_TABLE"
-      ],
+      "todos": [],
       "entries": [
         "crafting_table"
       ]
@@ -801,9 +799,7 @@
     },
     "JukeboxBlock": {
       "implemented": true,
-      "todos": [
-        "Award Stats.PLAY_RECORD once Steel has a statistics foundation."
-      ],
+      "todos": [],
       "entries": [
         "jukebox"
       ]
@@ -985,9 +981,7 @@
     },
     "PumpkinBlock": {
       "implemented": true,
-      "todos": [
-        "Award statistic ITEM_USED with SHEARS."
-      ],
+      "todos": [],
       "entries": [
         "pumpkin"
       ]
@@ -1922,7 +1916,6 @@
     "BarrelBlock": {
       "implemented": true,
       "todos": [
-        "Award stat OPEN_BARREL",
         "Anger nearby piglins (PiglinAi.angerNearbyPiglins)",
         "Implement ContainerOpenersCounter to track open state, play sounds, and update OPEN block property. Requires scheduled block ticks (scheduleTick) for recheck functionality. See vanilla BarrelBlockEntity and ContainerOpenersCounter."
       ],
@@ -2123,7 +2116,9 @@
     },
     "TargetBlock": {
       "implemented": true,
-      "todos": [],
+      "todos": [
+        "The advancement criterion awaits Steel's shared advancement foundations."
+      ],
       "entries": [
         "target"
       ]
@@ -4678,7 +4673,7 @@
       ]
     },
     "Endermite": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "endermite"
@@ -4693,9 +4688,7 @@
     },
     "ThrownEnderpearl": {
       "implemented": true,
-      "todos": [
-        "5% endermite spawn (Endermite entity not implemented)."
-      ],
+      "todos": [],
       "entries": [
         "ender_pearl"
       ]
@@ -4951,7 +4944,7 @@
       ]
     },
     "Marker": {
-      "implemented": false,
+      "implemented": true,
       "todos": [],
       "entries": [
         "marker"
