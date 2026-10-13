@@ -1,9 +1,9 @@
 {
   "meta": {
     "source": "nightly",
-    "steel_version": "0.15.4+mc26.2",
-    "steel_commit": "f3d345146b9849aaf57123667ca3bbd18912f962",
-    "steel_committed_at": "2026-10-08T09:53:59+02:00"
+    "steel_version": "0.16.0+mc26.3",
+    "steel_commit": "da3fb73fc05b3114e24babe68b506c98a9185752",
+    "steel_committed_at": "2026-10-13T23:18:04+02:00"
   },
   "blocks": {
     "GrassBlock": {
@@ -36,6 +36,7 @@
         "dark_oak_log",
         "pale_oak_log",
         "mangrove_log",
+        "poplar_log",
         "muddy_mangrove_roots",
         "bamboo_block",
         "stripped_spruce_log",
@@ -47,6 +48,7 @@
         "stripped_pale_oak_log",
         "stripped_oak_log",
         "stripped_mangrove_log",
+        "stripped_poplar_log",
         "stripped_bamboo_block",
         "oak_wood",
         "spruce_wood",
@@ -56,6 +58,7 @@
         "cherry_wood",
         "dark_oak_wood",
         "mangrove_wood",
+        "poplar_wood",
         "stripped_oak_wood",
         "stripped_spruce_wood",
         "stripped_birch_wood",
@@ -65,6 +68,7 @@
         "stripped_dark_oak_wood",
         "stripped_pale_oak_wood",
         "stripped_mangrove_wood",
+        "stripped_poplar_wood",
         "basalt",
         "polished_basalt",
         "quartz_pillar",
@@ -97,7 +101,8 @@
         "acacia_sapling",
         "cherry_sapling",
         "dark_oak_sapling",
-        "pale_oak_sapling"
+        "pale_oak_sapling",
+        "poplar_sapling"
       ]
     },
     "MangrovePropaguleBlock": {
@@ -172,11 +177,17 @@
       "todos": [],
       "entries": [
         "oak_leaves",
-        "spruce_leaves",
         "birch_leaves",
         "jungle_leaves",
         "acacia_leaves",
         "dark_oak_leaves"
+      ]
+    },
+    "LeavesBlock": {
+      "implemented": false,
+      "todos": [],
+      "entries": [
+        "spruce_leaves"
       ]
     },
     "UntintedParticleLeavesBlock": {
@@ -185,6 +196,9 @@
       "entries": [
         "cherry_leaves",
         "pale_oak_leaves",
+        "red_poplar_leaves",
+        "orange_poplar_leaves",
+        "yellow_poplar_leaves",
         "azalea_leaves",
         "flowering_azalea_leaves"
       ]
@@ -258,6 +272,13 @@
         "black_bed"
       ]
     },
+    "StrawBedBlock": {
+      "implemented": true,
+      "todos": [],
+      "entries": [
+        "straw_bed"
+      ]
+    },
     "PoweredRailBlock": {
       "implemented": true,
       "todos": [],
@@ -309,7 +330,8 @@
       "implemented": true,
       "todos": [],
       "entries": [
-        "bush"
+        "bush",
+        "red_shrub"
       ]
     },
     "ShortDryGrassBlock": {
@@ -345,6 +367,208 @@
       "todos": [],
       "entries": [
         "piston_head"
+      ]
+    },
+    "StairBlock": {
+      "implemented": true,
+      "todos": [],
+      "entries": [
+        "white_wool_stairs",
+        "orange_wool_stairs",
+        "magenta_wool_stairs",
+        "light_blue_wool_stairs",
+        "yellow_wool_stairs",
+        "lime_wool_stairs",
+        "pink_wool_stairs",
+        "gray_wool_stairs",
+        "light_gray_wool_stairs",
+        "cyan_wool_stairs",
+        "purple_wool_stairs",
+        "blue_wool_stairs",
+        "brown_wool_stairs",
+        "green_wool_stairs",
+        "red_wool_stairs",
+        "black_wool_stairs",
+        "oak_stairs",
+        "cobblestone_stairs",
+        "brick_stairs",
+        "stone_brick_stairs",
+        "mud_brick_stairs",
+        "resin_brick_stairs",
+        "nether_brick_stairs",
+        "sandstone_stairs",
+        "spruce_stairs",
+        "birch_stairs",
+        "jungle_stairs",
+        "quartz_stairs",
+        "acacia_stairs",
+        "cherry_stairs",
+        "dark_oak_stairs",
+        "pale_oak_stairs",
+        "mangrove_stairs",
+        "poplar_stairs",
+        "bamboo_stairs",
+        "bamboo_mosaic_stairs",
+        "prismarine_stairs",
+        "prismarine_brick_stairs",
+        "dark_prismarine_stairs",
+        "red_sandstone_stairs",
+        "purpur_stairs",
+        "white_concrete_stairs",
+        "orange_concrete_stairs",
+        "magenta_concrete_stairs",
+        "light_blue_concrete_stairs",
+        "yellow_concrete_stairs",
+        "lime_concrete_stairs",
+        "pink_concrete_stairs",
+        "gray_concrete_stairs",
+        "light_gray_concrete_stairs",
+        "cyan_concrete_stairs",
+        "purple_concrete_stairs",
+        "blue_concrete_stairs",
+        "brown_concrete_stairs",
+        "green_concrete_stairs",
+        "red_concrete_stairs",
+        "black_concrete_stairs",
+        "polished_granite_stairs",
+        "smooth_red_sandstone_stairs",
+        "mossy_stone_brick_stairs",
+        "polished_diorite_stairs",
+        "mossy_cobblestone_stairs",
+        "end_stone_brick_stairs",
+        "stone_stairs",
+        "smooth_sandstone_stairs",
+        "smooth_quartz_stairs",
+        "granite_stairs",
+        "andesite_stairs",
+        "red_nether_brick_stairs",
+        "polished_andesite_stairs",
+        "diorite_stairs",
+        "crimson_stairs",
+        "warped_stairs",
+        "blackstone_stairs",
+        "polished_blackstone_brick_stairs",
+        "polished_blackstone_stairs",
+        "tuff_stairs",
+        "polished_tuff_stairs",
+        "tuff_brick_stairs",
+        "sulfur_stairs",
+        "polished_sulfur_stairs",
+        "sulfur_brick_stairs",
+        "cinnabar_stairs",
+        "polished_cinnabar_stairs",
+        "cinnabar_brick_stairs",
+        "waxed_cut_copper_stairs",
+        "waxed_exposed_cut_copper_stairs",
+        "waxed_weathered_cut_copper_stairs",
+        "waxed_oxidized_cut_copper_stairs",
+        "cobbled_deepslate_stairs",
+        "polished_deepslate_stairs",
+        "deepslate_tile_stairs",
+        "deepslate_brick_stairs"
+      ]
+    },
+    "SlabBlock": {
+      "implemented": true,
+      "todos": [],
+      "entries": [
+        "white_wool_slab",
+        "orange_wool_slab",
+        "magenta_wool_slab",
+        "light_blue_wool_slab",
+        "yellow_wool_slab",
+        "lime_wool_slab",
+        "pink_wool_slab",
+        "gray_wool_slab",
+        "light_gray_wool_slab",
+        "cyan_wool_slab",
+        "purple_wool_slab",
+        "blue_wool_slab",
+        "brown_wool_slab",
+        "green_wool_slab",
+        "red_wool_slab",
+        "black_wool_slab",
+        "resin_brick_slab",
+        "prismarine_slab",
+        "prismarine_brick_slab",
+        "dark_prismarine_slab",
+        "oak_slab",
+        "spruce_slab",
+        "birch_slab",
+        "jungle_slab",
+        "acacia_slab",
+        "cherry_slab",
+        "dark_oak_slab",
+        "pale_oak_slab",
+        "mangrove_slab",
+        "poplar_slab",
+        "bamboo_slab",
+        "bamboo_mosaic_slab",
+        "stone_slab",
+        "sandstone_slab",
+        "cut_sandstone_slab",
+        "petrified_oak_slab",
+        "cobblestone_slab",
+        "brick_slab",
+        "stone_brick_slab",
+        "mud_brick_slab",
+        "nether_brick_slab",
+        "quartz_slab",
+        "red_sandstone_slab",
+        "cut_red_sandstone_slab",
+        "smooth_stone_slab",
+        "purpur_slab",
+        "white_concrete_slab",
+        "orange_concrete_slab",
+        "magenta_concrete_slab",
+        "light_blue_concrete_slab",
+        "yellow_concrete_slab",
+        "lime_concrete_slab",
+        "pink_concrete_slab",
+        "gray_concrete_slab",
+        "light_gray_concrete_slab",
+        "cyan_concrete_slab",
+        "purple_concrete_slab",
+        "blue_concrete_slab",
+        "brown_concrete_slab",
+        "green_concrete_slab",
+        "red_concrete_slab",
+        "black_concrete_slab",
+        "polished_granite_slab",
+        "smooth_red_sandstone_slab",
+        "mossy_stone_brick_slab",
+        "polished_diorite_slab",
+        "mossy_cobblestone_slab",
+        "end_stone_brick_slab",
+        "smooth_sandstone_slab",
+        "smooth_quartz_slab",
+        "granite_slab",
+        "andesite_slab",
+        "red_nether_brick_slab",
+        "polished_andesite_slab",
+        "diorite_slab",
+        "crimson_slab",
+        "warped_slab",
+        "blackstone_slab",
+        "polished_blackstone_brick_slab",
+        "polished_blackstone_slab",
+        "tuff_slab",
+        "polished_tuff_slab",
+        "tuff_brick_slab",
+        "sulfur_slab",
+        "polished_sulfur_slab",
+        "sulfur_brick_slab",
+        "cinnabar_slab",
+        "polished_cinnabar_slab",
+        "cinnabar_brick_slab",
+        "waxed_cut_copper_slab",
+        "waxed_exposed_cut_copper_slab",
+        "waxed_weathered_cut_copper_slab",
+        "waxed_oxidized_cut_copper_slab",
+        "cobbled_deepslate_slab",
+        "polished_deepslate_slab",
+        "deepslate_tile_slab",
+        "deepslate_brick_slab"
       ]
     },
     "MovingPistonBlock": {
@@ -417,6 +641,7 @@
         "mangrove_shelf",
         "oak_shelf",
         "pale_oak_shelf",
+        "poplar_shelf",
         "spruce_shelf",
         "warped_shelf"
       ]
@@ -470,72 +695,6 @@
         "creaking_heart"
       ]
     },
-    "StairBlock": {
-      "implemented": true,
-      "todos": [],
-      "entries": [
-        "oak_stairs",
-        "cobblestone_stairs",
-        "brick_stairs",
-        "stone_brick_stairs",
-        "mud_brick_stairs",
-        "resin_brick_stairs",
-        "nether_brick_stairs",
-        "sandstone_stairs",
-        "spruce_stairs",
-        "birch_stairs",
-        "jungle_stairs",
-        "quartz_stairs",
-        "acacia_stairs",
-        "cherry_stairs",
-        "dark_oak_stairs",
-        "pale_oak_stairs",
-        "mangrove_stairs",
-        "bamboo_stairs",
-        "bamboo_mosaic_stairs",
-        "prismarine_stairs",
-        "prismarine_brick_stairs",
-        "dark_prismarine_stairs",
-        "red_sandstone_stairs",
-        "purpur_stairs",
-        "polished_granite_stairs",
-        "smooth_red_sandstone_stairs",
-        "mossy_stone_brick_stairs",
-        "polished_diorite_stairs",
-        "mossy_cobblestone_stairs",
-        "end_stone_brick_stairs",
-        "stone_stairs",
-        "smooth_sandstone_stairs",
-        "smooth_quartz_stairs",
-        "granite_stairs",
-        "andesite_stairs",
-        "red_nether_brick_stairs",
-        "polished_andesite_stairs",
-        "diorite_stairs",
-        "crimson_stairs",
-        "warped_stairs",
-        "blackstone_stairs",
-        "polished_blackstone_brick_stairs",
-        "polished_blackstone_stairs",
-        "tuff_stairs",
-        "polished_tuff_stairs",
-        "tuff_brick_stairs",
-        "sulfur_stairs",
-        "polished_sulfur_stairs",
-        "sulfur_brick_stairs",
-        "cinnabar_stairs",
-        "polished_cinnabar_stairs",
-        "cinnabar_brick_stairs",
-        "waxed_cut_copper_stairs",
-        "waxed_exposed_cut_copper_stairs",
-        "waxed_weathered_cut_copper_stairs",
-        "waxed_oxidized_cut_copper_stairs",
-        "cobbled_deepslate_stairs",
-        "polished_deepslate_stairs",
-        "deepslate_tile_stairs",
-        "deepslate_brick_stairs"
-      ]
-    },
     "ChestBlock": {
       "implemented": false,
       "todos": [],
@@ -543,7 +702,7 @@
         "chest"
       ]
     },
-    "RedStoneWireBlock": {
+    "RedstoneWireBlock": {
       "implemented": true,
       "todos": [],
       "entries": [
@@ -595,6 +754,7 @@
         "dark_oak_sign",
         "pale_oak_sign",
         "mangrove_sign",
+        "poplar_sign",
         "bamboo_sign",
         "crimson_sign",
         "warped_sign"
@@ -614,6 +774,7 @@
         "dark_oak_door",
         "pale_oak_door",
         "mangrove_door",
+        "poplar_door",
         "bamboo_door",
         "crimson_door",
         "warped_door",
@@ -650,6 +811,7 @@
         "dark_oak_wall_sign",
         "pale_oak_wall_sign",
         "mangrove_wall_sign",
+        "poplar_wall_sign",
         "bamboo_wall_sign",
         "crimson_wall_sign",
         "warped_wall_sign"
@@ -670,6 +832,7 @@
         "crimson_hanging_sign",
         "warped_hanging_sign",
         "mangrove_hanging_sign",
+        "poplar_hanging_sign",
         "bamboo_hanging_sign"
       ]
     },
@@ -686,6 +849,7 @@
         "dark_oak_wall_hanging_sign",
         "pale_oak_wall_hanging_sign",
         "mangrove_wall_hanging_sign",
+        "poplar_wall_hanging_sign",
         "crimson_wall_hanging_sign",
         "warped_wall_hanging_sign",
         "bamboo_wall_hanging_sign"
@@ -712,6 +876,7 @@
         "dark_oak_pressure_plate",
         "pale_oak_pressure_plate",
         "mangrove_pressure_plate",
+        "poplar_pressure_plate",
         "bamboo_pressure_plate",
         "crimson_pressure_plate",
         "warped_pressure_plate",
@@ -754,6 +919,7 @@
         "dark_oak_button",
         "pale_oak_button",
         "mangrove_button",
+        "poplar_button",
         "bamboo_button",
         "crimson_button",
         "warped_button",
@@ -816,6 +982,7 @@
         "dark_oak_fence",
         "pale_oak_fence",
         "mangrove_fence",
+        "poplar_fence",
         "bamboo_fence",
         "crimson_fence",
         "warped_fence"
@@ -901,6 +1068,7 @@
         "dark_oak_trapdoor",
         "pale_oak_trapdoor",
         "mangrove_trapdoor",
+        "poplar_trapdoor",
         "bamboo_trapdoor",
         "iron_trapdoor",
         "crimson_trapdoor",
@@ -1032,6 +1200,7 @@
         "dark_oak_fence_gate",
         "pale_oak_fence_gate",
         "mangrove_fence_gate",
+        "poplar_fence_gate",
         "bamboo_fence_gate",
         "crimson_fence_gate",
         "warped_fence_gate"
@@ -1049,76 +1218,6 @@
       "todos": [],
       "entries": [
         "lily_pad"
-      ]
-    },
-    "SlabBlock": {
-      "implemented": true,
-      "todos": [],
-      "entries": [
-        "resin_brick_slab",
-        "prismarine_slab",
-        "prismarine_brick_slab",
-        "dark_prismarine_slab",
-        "oak_slab",
-        "spruce_slab",
-        "birch_slab",
-        "jungle_slab",
-        "acacia_slab",
-        "cherry_slab",
-        "dark_oak_slab",
-        "pale_oak_slab",
-        "mangrove_slab",
-        "bamboo_slab",
-        "bamboo_mosaic_slab",
-        "stone_slab",
-        "smooth_stone_slab",
-        "sandstone_slab",
-        "cut_sandstone_slab",
-        "petrified_oak_slab",
-        "cobblestone_slab",
-        "brick_slab",
-        "stone_brick_slab",
-        "mud_brick_slab",
-        "nether_brick_slab",
-        "quartz_slab",
-        "red_sandstone_slab",
-        "cut_red_sandstone_slab",
-        "purpur_slab",
-        "polished_granite_slab",
-        "smooth_red_sandstone_slab",
-        "mossy_stone_brick_slab",
-        "polished_diorite_slab",
-        "mossy_cobblestone_slab",
-        "end_stone_brick_slab",
-        "smooth_sandstone_slab",
-        "smooth_quartz_slab",
-        "granite_slab",
-        "andesite_slab",
-        "red_nether_brick_slab",
-        "polished_andesite_slab",
-        "diorite_slab",
-        "crimson_slab",
-        "warped_slab",
-        "blackstone_slab",
-        "polished_blackstone_brick_slab",
-        "polished_blackstone_slab",
-        "tuff_slab",
-        "polished_tuff_slab",
-        "tuff_brick_slab",
-        "sulfur_slab",
-        "polished_sulfur_slab",
-        "sulfur_brick_slab",
-        "cinnabar_slab",
-        "polished_cinnabar_slab",
-        "cinnabar_brick_slab",
-        "waxed_cut_copper_slab",
-        "waxed_exposed_cut_copper_slab",
-        "waxed_weathered_cut_copper_slab",
-        "waxed_oxidized_cut_copper_slab",
-        "cobbled_deepslate_slab",
-        "polished_deepslate_slab",
-        "deepslate_tile_slab",
-        "deepslate_brick_slab"
       ]
     },
     "WallBlock": {
@@ -1237,6 +1336,13 @@
         "cocoa"
       ]
     },
+    "ShelfMushroomBlock": {
+      "implemented": false,
+      "todos": [],
+      "entries": [
+        "shelf_mushroom"
+      ]
+    },
     "EnderChestBlock": {
       "implemented": true,
       "todos": [
@@ -1292,6 +1398,7 @@
         "potted_cherry_sapling",
         "potted_dark_oak_sapling",
         "potted_pale_oak_sapling",
+        "potted_poplar_sapling",
         "potted_mangrove_propagule",
         "potted_fern",
         "potted_dandelion",
@@ -1629,7 +1736,7 @@
         "beetroots"
       ]
     },
-    "DirtPathBlock": {
+    "PathBlock": {
       "implemented": true,
       "todos": [],
       "entries": [
@@ -2738,6 +2845,7 @@
         "dark_oak_planks",
         "pale_oak_planks",
         "mangrove_planks",
+        "poplar_planks",
         "bamboo_planks",
         "crimson_planks",
         "warped_planks",
@@ -2751,6 +2859,7 @@
         "dark_oak_sapling",
         "pale_oak_sapling",
         "mangrove_propagule",
+        "poplar_sapling",
         "bedrock",
         "sand",
         "suspicious_sand",
@@ -2836,6 +2945,7 @@
         "pale_oak_log",
         "dark_oak_log",
         "mangrove_log",
+        "poplar_log",
         "mangrove_roots",
         "muddy_mangrove_roots",
         "crimson_stem",
@@ -2850,6 +2960,7 @@
         "stripped_dark_oak_log",
         "stripped_pale_oak_log",
         "stripped_mangrove_log",
+        "stripped_poplar_log",
         "stripped_crimson_stem",
         "stripped_warped_stem",
         "stripped_oak_wood",
@@ -2861,6 +2972,7 @@
         "stripped_dark_oak_wood",
         "stripped_pale_oak_wood",
         "stripped_mangrove_wood",
+        "stripped_poplar_wood",
         "stripped_crimson_hyphae",
         "stripped_warped_hyphae",
         "stripped_bamboo_block",
@@ -2873,6 +2985,7 @@
         "pale_oak_wood",
         "dark_oak_wood",
         "mangrove_wood",
+        "poplar_wood",
         "crimson_hyphae",
         "warped_hyphae",
         "oak_leaves",
@@ -2884,6 +2997,9 @@
         "dark_oak_leaves",
         "pale_oak_leaves",
         "mangrove_leaves",
+        "red_poplar_leaves",
+        "orange_poplar_leaves",
+        "yellow_poplar_leaves",
         "azalea_leaves",
         "flowering_azalea_leaves",
         "sponge",
@@ -2898,6 +3014,7 @@
         "short_grass",
         "fern",
         "bush",
+        "red_shrub",
         "azalea",
         "flowering_azalea",
         "dead_bush",
@@ -2922,6 +3039,38 @@
         "green_wool",
         "red_wool",
         "black_wool",
+        "white_wool_stairs",
+        "orange_wool_stairs",
+        "magenta_wool_stairs",
+        "light_blue_wool_stairs",
+        "yellow_wool_stairs",
+        "lime_wool_stairs",
+        "pink_wool_stairs",
+        "gray_wool_stairs",
+        "light_gray_wool_stairs",
+        "cyan_wool_stairs",
+        "purple_wool_stairs",
+        "blue_wool_stairs",
+        "brown_wool_stairs",
+        "green_wool_stairs",
+        "red_wool_stairs",
+        "black_wool_stairs",
+        "white_wool_slab",
+        "orange_wool_slab",
+        "magenta_wool_slab",
+        "light_blue_wool_slab",
+        "yellow_wool_slab",
+        "lime_wool_slab",
+        "pink_wool_slab",
+        "gray_wool_slab",
+        "light_gray_wool_slab",
+        "cyan_wool_slab",
+        "purple_wool_slab",
+        "blue_wool_slab",
+        "brown_wool_slab",
+        "green_wool_slab",
+        "red_wool_slab",
+        "black_wool_slab",
         "dandelion",
         "golden_dandelion",
         "open_eyeblossom",
@@ -2943,6 +3092,7 @@
         "spore_blossom",
         "brown_mushroom",
         "red_mushroom",
+        "shelf_mushroom",
         "crimson_fungus",
         "warped_fungus",
         "crimson_roots",
@@ -2972,6 +3122,7 @@
         "dark_oak_slab",
         "pale_oak_slab",
         "mangrove_slab",
+        "poplar_slab",
         "bamboo_slab",
         "bamboo_mosaic_slab",
         "crimson_slab",
@@ -3006,6 +3157,7 @@
         "dark_oak_shelf",
         "jungle_shelf",
         "mangrove_shelf",
+        "poplar_shelf",
         "oak_shelf",
         "pale_oak_shelf",
         "spruce_shelf",
@@ -3045,6 +3197,7 @@
         "dark_oak_fence",
         "pale_oak_fence",
         "mangrove_fence",
+        "poplar_fence",
         "bamboo_fence",
         "crimson_fence",
         "warped_fence",
@@ -3139,6 +3292,7 @@
         "dark_oak_stairs",
         "pale_oak_stairs",
         "mangrove_stairs",
+        "poplar_stairs",
         "bamboo_stairs",
         "bamboo_mosaic_stairs",
         "crimson_stairs",
@@ -3310,6 +3464,38 @@
         "green_concrete",
         "red_concrete",
         "black_concrete",
+        "white_concrete_stairs",
+        "orange_concrete_stairs",
+        "magenta_concrete_stairs",
+        "light_blue_concrete_stairs",
+        "yellow_concrete_stairs",
+        "lime_concrete_stairs",
+        "pink_concrete_stairs",
+        "gray_concrete_stairs",
+        "light_gray_concrete_stairs",
+        "cyan_concrete_stairs",
+        "purple_concrete_stairs",
+        "blue_concrete_stairs",
+        "brown_concrete_stairs",
+        "green_concrete_stairs",
+        "red_concrete_stairs",
+        "black_concrete_stairs",
+        "white_concrete_slab",
+        "orange_concrete_slab",
+        "magenta_concrete_slab",
+        "light_blue_concrete_slab",
+        "yellow_concrete_slab",
+        "lime_concrete_slab",
+        "pink_concrete_slab",
+        "gray_concrete_slab",
+        "light_gray_concrete_slab",
+        "cyan_concrete_slab",
+        "purple_concrete_slab",
+        "blue_concrete_slab",
+        "brown_concrete_slab",
+        "green_concrete_slab",
+        "red_concrete_slab",
+        "black_concrete_slab",
         "white_concrete_powder",
         "orange_concrete_powder",
         "magenta_concrete_powder",
@@ -3428,6 +3614,7 @@
         "dark_oak_button",
         "pale_oak_button",
         "mangrove_button",
+        "poplar_button",
         "bamboo_button",
         "crimson_button",
         "warped_button",
@@ -3444,6 +3631,7 @@
         "dark_oak_pressure_plate",
         "pale_oak_pressure_plate",
         "mangrove_pressure_plate",
+        "poplar_pressure_plate",
         "bamboo_pressure_plate",
         "crimson_pressure_plate",
         "warped_pressure_plate",
@@ -3457,6 +3645,7 @@
         "dark_oak_trapdoor",
         "pale_oak_trapdoor",
         "mangrove_trapdoor",
+        "poplar_trapdoor",
         "bamboo_trapdoor",
         "crimson_trapdoor",
         "warped_trapdoor",
@@ -3477,6 +3666,7 @@
         "dark_oak_fence_gate",
         "pale_oak_fence_gate",
         "mangrove_fence_gate",
+        "poplar_fence_gate",
         "bamboo_fence_gate",
         "crimson_fence_gate",
         "warped_fence_gate",
@@ -3489,6 +3679,23 @@
         "dried_kelp_block",
         "cocoa_beans",
         "cake",
+        "white_bed",
+        "orange_bed",
+        "magenta_bed",
+        "light_blue_bed",
+        "yellow_bed",
+        "lime_bed",
+        "pink_bed",
+        "gray_bed",
+        "light_gray_bed",
+        "cyan_bed",
+        "purple_bed",
+        "blue_bed",
+        "brown_bed",
+        "green_bed",
+        "red_bed",
+        "black_bed",
+        "straw_bed",
         "crafter",
         "pumpkin_seeds",
         "melon_seeds",
@@ -3628,6 +3835,7 @@
         "dark_oak_door",
         "pale_oak_door",
         "mangrove_door",
+        "poplar_door",
         "bamboo_door",
         "crimson_door",
         "warped_door",
@@ -3659,6 +3867,19 @@
         "dead_fire_coral_fan",
         "dead_horn_coral_fan",
         "redstone_torch",
+        "oak_sign",
+        "spruce_sign",
+        "birch_sign",
+        "jungle_sign",
+        "acacia_sign",
+        "cherry_sign",
+        "dark_oak_sign",
+        "pale_oak_sign",
+        "mangrove_sign",
+        "poplar_sign",
+        "bamboo_sign",
+        "crimson_sign",
+        "warped_sign",
         "skeleton_skull",
         "wither_skeleton_skull",
         "zombie_head",
@@ -3737,6 +3958,8 @@
         "pale_oak_chest_boat",
         "mangrove_boat",
         "mangrove_chest_boat",
+        "poplar_boat",
+        "poplar_chest_boat",
         "bamboo_raft",
         "bamboo_chest_raft"
       ]
@@ -3762,70 +3985,11 @@
         "arrow"
       ]
     },
-    "ShovelItem": {
-      "implemented": true,
-      "todos": [
-        "hurt_and_break(1, ...) — shovels take durability damage"
-      ],
-      "entries": [
-        "wooden_shovel",
-        "copper_shovel",
-        "stone_shovel",
-        "golden_shovel",
-        "iron_shovel",
-        "diamond_shovel",
-        "netherite_shovel"
-      ]
-    },
-    "AxeItem": {
-      "implemented": true,
-      "todos": [],
-      "entries": [
-        "wooden_axe",
-        "copper_axe",
-        "stone_axe",
-        "golden_axe",
-        "iron_axe",
-        "diamond_axe",
-        "netherite_axe"
-      ]
-    },
-    "HoeItem": {
-      "implemented": true,
-      "todos": [],
-      "entries": [
-        "wooden_hoe",
-        "copper_hoe",
-        "stone_hoe",
-        "golden_hoe",
-        "iron_hoe",
-        "diamond_hoe",
-        "netherite_hoe"
-      ]
-    },
     "HangingEntityItem": {
       "implemented": false,
       "todos": [],
       "entries": [
         "painting"
-      ]
-    },
-    "SignItem": {
-      "implemented": true,
-      "todos": [],
-      "entries": [
-        "oak_sign",
-        "spruce_sign",
-        "birch_sign",
-        "jungle_sign",
-        "acacia_sign",
-        "cherry_sign",
-        "dark_oak_sign",
-        "pale_oak_sign",
-        "mangrove_sign",
-        "bamboo_sign",
-        "crimson_sign",
-        "warped_sign"
       ]
     },
     "HangingSignItem": {
@@ -3841,6 +4005,7 @@
         "dark_oak_hanging_sign",
         "pale_oak_hanging_sign",
         "mangrove_hanging_sign",
+        "poplar_hanging_sign",
         "bamboo_hanging_sign",
         "crimson_hanging_sign",
         "warped_hanging_sign"
@@ -3927,6 +4092,28 @@
         "black_bundle"
       ]
     },
+    "CushionItem": {
+      "implemented": false,
+      "todos": [],
+      "entries": [
+        "white_cushion",
+        "orange_cushion",
+        "magenta_cushion",
+        "light_blue_cushion",
+        "yellow_cushion",
+        "lime_cushion",
+        "pink_cushion",
+        "gray_cushion",
+        "light_gray_cushion",
+        "cyan_cushion",
+        "purple_cushion",
+        "blue_cushion",
+        "brown_cushion",
+        "green_cushion",
+        "red_cushion",
+        "black_cushion"
+      ]
+    },
     "FishingRodItem": {
       "implemented": true,
       "todos": [
@@ -3989,33 +4176,27 @@
         "bone_meal"
       ]
     },
-    "BedItem": {
-      "implemented": true,
-      "todos": [],
-      "entries": [
-        "white_bed",
-        "orange_bed",
-        "magenta_bed",
-        "light_blue_bed",
-        "yellow_bed",
-        "lime_bed",
-        "pink_bed",
-        "gray_bed",
-        "light_gray_bed",
-        "cyan_bed",
-        "purple_bed",
-        "blue_bed",
-        "brown_bed",
-        "green_bed",
-        "red_bed",
-        "black_bed"
-      ]
-    },
     "MapItem": {
       "implemented": false,
       "todos": [],
       "entries": [
-        "filled_map"
+        "filled_map",
+        "ocean_monument_map",
+        "woodland_mansion_map",
+        "buried_trial_chambers_map",
+        "jungle_pyramid_map",
+        "swamp_hut_map",
+        "desert_village_map",
+        "plains_village_map",
+        "savanna_village_map",
+        "snowy_village_map",
+        "taiga_village_map",
+        "buried_treasure_map",
+        "buried_ancient_city_map",
+        "buried_mineshaft_map",
+        "desert_pyramid_map",
+        "abandoned_camp_map",
+        "warm_ocean_ruins_map"
       ]
     },
     "ShearsItem": {
@@ -4420,6 +4601,7 @@
         "mangrove_boat",
         "oak_boat",
         "pale_oak_boat",
+        "poplar_boat",
         "spruce_boat"
       ]
     },
@@ -4435,6 +4617,7 @@
         "mangrove_chest_boat",
         "oak_chest_boat",
         "pale_oak_chest_boat",
+        "poplar_chest_boat",
         "spruce_chest_boat"
       ]
     },
@@ -4627,6 +4810,13 @@
         "creeper"
       ]
     },
+    "Cushion": {
+      "implemented": false,
+      "todos": [],
+      "entries": [
+        "cushion"
+      ]
+    },
     "Dolphin": {
       "implemented": false,
       "todos": [],
@@ -4669,7 +4859,7 @@
         "elder_guardian"
       ]
     },
-    "EnderMan": {
+    "Enderman": {
       "implemented": false,
       "todos": [],
       "entries": [
@@ -5459,6 +5649,7 @@
         "Add items after every vanilla command-slot provider and container inventory is",
         "Add predicate and function after their runtime registries are ported.",
         "Restore Steel stopwatch conditions with the stopwatch command system.",
+        "Enforce the new game mode on online players when `force-gamemode=true` and return the",
         "Add `locate biome` once Steel has an asynchronous closest-biome search.",
         "Add `locate poi` once Steel has a point-of-interest manager.",
         "Add pagination for domains and worlds instead of truncating to the grid capacity."
@@ -5517,8 +5708,10 @@
       ]
     },
     "/defaultgamemode": {
-      "implemented": false,
-      "todos": [],
+      "implemented": true,
+      "todos": [
+        "Enforce the new game mode on online players when `force-gamemode=true` and return the"
+      ],
       "entries": [
         "/defaultgamemode"
       ]
