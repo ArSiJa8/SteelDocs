@@ -2,8 +2,8 @@
   "meta": {
     "source": "nightly",
     "steel_version": "0.16.0+mc26.3",
-    "steel_commit": "666c86d4eb34332cf6988aec8df26935a783678a",
-    "steel_committed_at": "2026-10-14T00:41:02+02:00"
+    "steel_commit": "5614c85a3c22984f6a17a10fadc7a8fc0e9aa719",
+    "steel_committed_at": "2026-10-15T21:53:03+02:00"
   },
   "blocks": {
     "GrassBlock": {
@@ -740,7 +740,7 @@
     "StandingSignBlock": {
       "implemented": true,
       "todos": [
-        "Implement sign applicators (use_with_item):",
+        "Implement dye sign applicators.",
         "Play waxed sign interaction fail sound",
         "Implement may_build check properly"
       ],
@@ -2505,8 +2505,13 @@
       ]
     },
     "WeatheringCopperChestBlock": {
-      "implemented": false,
-      "todos": [],
+      "implemented": true,
+      "todos": [
+        "Implement weathering random ticks skipping right halves and chests with active viewers",
+        "Expose the weathering age to neighboring copper blocks through the shared capability",
+        "Resolve facing waterlogging and doublechest placement (including secondary use)",
+        "Normalize connected halves to the least oxidized state and reconcile waxing"
+      ],
       "entries": [
         "copper_chest",
         "exposed_copper_chest",
@@ -2515,8 +2520,20 @@
       ]
     },
     "CopperChestBlock": {
-      "implemented": false,
-      "todos": [],
+      "implemented": true,
+      "todos": [
+        "Create the chest block entity with inventory loot table lock and custom name support",
+        "Combine connected halves into one container/ menu and check blocks and sitting cats above them",
+        "Open the chest menu award OPEN_CHEST and anger nearby piglins on interaction",
+        "Track viewers recheck them on scheduled ticks and synchronize opening through block events",
+        "Use the extracted open or close sounds for each copper chest variant",
+        "Expose container fullness to comparators and update neighbors after removal",
+        "Reject pathfinding through copper chests for every path computation type",
+        "Support facing rotation and mirroring for structure transforms",
+        "Provide copperblock conversion with connected half and oxidation normalization",
+        "Resolve facing waterlogging and doublechest placement (including secondary use)",
+        "Normalize connected halves to the least oxidized state and reconcile waxing"
+      ],
       "entries": [
         "waxed_copper_chest",
         "waxed_exposed_copper_chest",
