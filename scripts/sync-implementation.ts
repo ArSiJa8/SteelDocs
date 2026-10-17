@@ -221,11 +221,16 @@ const [classesRaw, commandsRaw] = await Promise.all([
 
 const [implementedBlockClasses, implementedItemClasses, implementedEntityClasses, implementedCommands] = await scanAllImplemented();
 
-function steelGit(...args: string[]): string | null {
+function steelGit(...args: string[]): string {
   try {
-    return execFileSync("git", ["-C", steelRoot, ...args], { encoding: "utf8" }).trim();
-  } catch {
-    return null;
+    return execFileSync("git", ["-C", steelRoot, ...args], {
+      encoding: "utf8",
+      stdio: ["pipe", "pipe", "pipe"],
+    }).trim();
+  } catch (err: unknown) {
+    const error = err as { stderr?: Buffer | string; message?: string };
+    const stderr = error?.stderr?.toString()?.trim() || error?.message || String(err);
+    throw new Error(`git -C "${steelRoot}" ${args.join(" ")} failed: ${stderr}`);
   }
 }
 
@@ -237,7 +242,7 @@ let releasedEntityClasses: Map<string, ClassInfo> | undefined;
 let releasedCommands: Map<string, ClassInfo> | undefined;
 
 if (latestTag) {
-  const currentHead = steelGit("rev-parse", "HEAD") || "main";
+  const currentHead = steelGit("rev-parse", "HEAD");
   steelGit("checkout", latestTag);
   try {
     [releasedBlockClasses, releasedItemClasses, releasedEntityClasses, releasedCommands] = await scanAllImplemented();
@@ -264,25 +269,19 @@ function groupByClass(
   const groups: Record<string, GroupedClass> = {};
   for (const entry of entries) {
     if (BLACKLISTED_CLASSES.has(entry.class)) continue;
-    if (!groups[entry.class]) {
-      const info = implementedClasses.get(entry.class);
-      groups[entry.class] = {
-        implemented: info !== undefined,
-        todos: info?.todos ?? [],
-        entries: [],
-        released: [],
-        new_in_nightly: [],
-      };
-    }
-    const g = groups[entry.class];
+    const info = implementedClasses.get(entry.class);
+    const g = (groups[entry.class] ??= {
+      implemented: info !== undefined,
+      todos: info?.todos ?? [],
+      entries: [],
+      released: [],
+      new_in_nightly: [],
+    });
     g.entries.push(entry.name);
     if (g.implemented) {
-      const wasReleased = releasedClasses ? releasedClasses.has(entry.class) : true;
-      if (wasReleased) {
-        g.released.push(entry.name);
-      } else {
-        g.new_in_nightly.push(entry.name);
-      }
+      (releasedClasses ? releasedClasses.has(entry.class) : true)
+        ? g.released.push(entry.name)
+        : g.new_in_nightly.push(entry.name);
     }
   }
   return groups;
