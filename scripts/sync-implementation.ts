@@ -229,7 +229,7 @@ function steelGit(...args: string[]): string | null {
   }
 }
 
-const tagsRaw = steelGit("tag", "-l", "--sort=-v:refname");
+const tagsRaw = steelGit("tag", "-l", "v*", "--sort=-v:refname");
 const latestTag = tagsRaw ? tagsRaw.split("\n").map((t) => t.trim()).filter(Boolean)[0] ?? null : null;
 let releasedBlockClasses: Map<string, ClassInfo> | undefined;
 let releasedItemClasses: Map<string, ClassInfo> | undefined;
