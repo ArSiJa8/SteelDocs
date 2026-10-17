@@ -468,74 +468,35 @@ export default function ImplementationTracker() {
 
                   {/* Entries */}
                   {(() => {
-                    const hasSplit = Boolean(
-                      (group.released && group.released.length > 0) ||
-                      (group.new_in_nightly && group.new_in_nightly.length > 0)
-                    );
-                    const releasedEntries = (group.released || []).filter((e) =>
-                      !search || e.toLowerCase().includes(search.toLowerCase())
-                    );
-                    const nightlyEntries = (group.new_in_nightly || []).filter((e) =>
-                      !search || e.toLowerCase().includes(search.toLowerCase())
-                    );
+                    const hasSplit = Boolean(group.released?.length || group.new_in_nightly?.length);
+                    const released = (group.released || []).filter((e) => !search || e.toLowerCase().includes(search.toLowerCase()));
+                    const nightly = (group.new_in_nightly || []).filter((e) => !search || e.toLowerCase().includes(search.toLowerCase()));
 
                     return (
                       <div className={`flex flex-col gap-2.5 ${group.todos.length === 0 && !group.issues && !group.prs ? "pt-2" : "pt-2 border-t border-teal-100 dark:border-white/5"}`}>
                         {hasSplit ? (
                           <>
-                            {releasedEntries.length > 0 && (
+                            {((!search && (group.released?.length || 0) > 0) || released.length > 0 || (nightly.length === 0 && (group.released?.length || 0) > 0)) && (
                               <div>
                                 <span className="text-[11px] font-semibold text-teal-700/80 dark:text-white/50 uppercase tracking-wider mb-1.5 block">
                                   In release {data?.meta?.latest_release ? `(${data.meta.latest_release})` : ""}
                                 </span>
-                                <div className="flex flex-wrap gap-1.5">
-                                  {releasedEntries.map((entry) => (
-                                    <span
-                                      key={entry}
-                                      className="text-xs px-2 py-1 rounded-lg bg-teal-50 dark:bg-white/5 text-teal-700 dark:text-white/60 border border-teal-100 dark:border-white/5"
-                                    >
-                                      {entry}
-                                    </span>
-                                  ))}
-                                </div>
+                                <EntryChips entries={released} totalCount={group.released?.length || 0} search={search} />
                               </div>
                             )}
 
-                            {nightlyEntries.length > 0 && (
+                            {((!search && (group.new_in_nightly?.length || 0) > 0) || nightly.length > 0 || (released.length === 0 && (group.new_in_nightly?.length || 0) > 0)) && (
                               <div>
                                 <span className="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
                                   <span className="inline-block size-1.5 rounded-full bg-emerald-500 animate-pulse" />
                                   New in nightly
                                 </span>
-                                <div className="flex flex-wrap gap-1.5">
-                                  {nightlyEntries.map((entry) => (
-                                    <span
-                                      key={entry}
-                                      className="text-xs px-2 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-400/10 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-400/20"
-                                    >
-                                      {entry}
-                                    </span>
-                                  ))}
-                                </div>
+                                <EntryChips entries={nightly} totalCount={group.new_in_nightly?.length || 0} search={search} nightly />
                               </div>
                             )}
                           </>
                         ) : (
-                          <div className="flex flex-wrap gap-1.5">
-                            {(search ? matchingEntries : group.entries).map((entry) => (
-                              <span
-                                key={entry}
-                                className="text-xs px-2 py-1 rounded-lg bg-teal-50 dark:bg-white/5 text-teal-700 dark:text-white/60 border border-teal-100 dark:border-white/5"
-                              >
-                                {entry}
-                              </span>
-                            ))}
-                            {search && matchingEntries.length < group.entries.length && (
-                              <span className="text-xs px-2 py-1 text-teal-400 dark:text-white/30 italic">
-                                +{group.entries.length - matchingEntries.length} more
-                              </span>
-                            )}
-                          </div>
+                          <EntryChips entries={search ? matchingEntries : group.entries} totalCount={group.entries.length} search={search} />
                         )}
                       </div>
                     );
@@ -570,6 +531,40 @@ function StatCard({ label, value, color = "default" }: { label: string; value: n
       <p className={`text-2xl font-minecraft mt-0.5 ${colorClasses[color]}`}>
         {value}
       </p>
+    </div>
+  );
+}
+
+function EntryChips({
+  entries,
+  totalCount,
+  search,
+  nightly,
+}: {
+  entries: string[];
+  totalCount: number;
+  search: string;
+  nightly?: boolean;
+}) {
+  return (
+    <div className="flex flex-wrap gap-1.5">
+      {entries.map((entry) => (
+        <span
+          key={entry}
+          className={`text-xs px-2 py-1 rounded-lg border ${
+            nightly
+              ? "bg-emerald-50 dark:bg-emerald-400/10 text-emerald-700 dark:text-emerald-300 border-emerald-200/60 dark:border-emerald-400/20"
+              : "bg-teal-50 dark:bg-white/5 text-teal-700 dark:text-white/60 border border-teal-100 dark:border-white/5"
+          }`}
+        >
+          {entry}
+        </span>
+      ))}
+      {search && entries.length < totalCount && (
+        <span className="text-xs px-2 py-1 text-teal-400 dark:text-white/30 italic">
+          +{totalCount - entries.length} more
+        </span>
+      )}
     </div>
   );
 }
